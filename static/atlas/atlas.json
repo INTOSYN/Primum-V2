@@ -1,0 +1,800 @@
+[
+ {
+  "id": "s1_anchor_signed_median_phenix_x1_6t7s_394_met",
+  "figure": "S1",
+  "kind": "local",
+  "role": "anchor_signed_median",
+  "role_label": "Median signed Δχ₁",
+  "arm": "Phenix ×1",
+  "case": "6T7S",
+  "residue": "MET395",
+  "delta_chi1_deg": 0.52,
+  "reference_pdb": "6TA5",
+  "map": "EMD-10371",
+  "contour_levels_raw": [
+   0.01412821522663317,
+   0.019740963235934925,
+   0.025353711245236676
+  ],
+  "files": {
+   "view": {
+    "file": "s1_anchor_signed_median_phenix_x1_6t7s_394_met-2000.webp",
+    "width": 2000,
+    "height": 1561,
+    "bytes": 127210
+   },
+   "view_small": {
+    "file": "s1_anchor_signed_median_phenix_x1_6t7s_394_met-960.webp",
+    "width": 960,
+    "height": 749,
+    "bytes": 49434
+   },
+   "locator": {
+    "file": "s1_anchor_signed_median_phenix_x1_6t7s_394_met-locator.webp",
+    "width": 720,
+    "height": 587,
+    "bytes": 72168
+   }
+  }
+ },
+ {
+  "id": "s1_anchor_signed_median_phenix_x2_6b3q_687_thr",
+  "figure": "S1",
+  "kind": "local",
+  "role": "anchor_signed_median",
+  "role_label": "Median signed Δχ₁",
+  "arm": "Phenix ×2",
+  "case": "6B3Q",
+  "residue": "THR734",
+  "delta_chi1_deg": 0.94,
+  "reference_pdb": "7K1F",
+  "map": "EMD-7041",
+  "contour_levels_raw": [
+   0.0369274515642843,
+   0.05100904361445154,
+   0.06509063566461878
+  ],
+  "files": {
+   "view": {
+    "file": "s1_anchor_signed_median_phenix_x2_6b3q_687_thr-2000.webp",
+    "width": 2000,
+    "height": 2124,
+    "bytes": 167144
+   },
+   "view_small": {
+    "file": "s1_anchor_signed_median_phenix_x2_6b3q_687_thr-960.webp",
+    "width": 960,
+    "height": 1019,
+    "bytes": 65860
+   },
+   "locator": {
+    "file": "s1_anchor_signed_median_phenix_x2_6b3q_687_thr-locator.webp",
+    "width": 720,
+    "height": 422,
+    "bytes": 53370
+   }
+  }
+ },
+ {
+  "id": "s1_anchor_signed_median_cryonet_6pvm_293_val",
+  "figure": "S1",
+  "kind": "local",
+  "role": "anchor_signed_median",
+  "role_label": "Median signed Δχ₁",
+  "arm": "CryoNet.Refine",
+  "case": "6PVM",
+  "residue": "VAL408",
+  "delta_chi1_deg": -0.0,
+  "reference_pdb": "7MIJ",
+  "map": "EMD-20493",
+  "contour_levels_raw": [
+   0.5029552499048354,
+   0.792322713265492,
+   1.0816901766261486
+  ],
+  "files": {
+   "view": {
+    "file": "s1_anchor_signed_median_cryonet_6pvm_293_val-2000.webp",
+    "width": 2000,
+    "height": 1828,
+    "bytes": 140720
+   },
+   "view_small": {
+    "file": "s1_anchor_signed_median_cryonet_6pvm_293_val-960.webp",
+    "width": 960,
+    "height": 878,
+    "bytes": 54298
+   },
+   "locator": {
+    "file": "s1_anchor_signed_median_cryonet_6pvm_293_val-locator.webp",
+    "width": 720,
+    "height": 786,
+    "bytes": 74556
+   }
+  }
+ },
+ {
+  "id": "s1_anchor_signed_median_servalcat_6pvm_386_glu",
+  "figure": "S1",
+  "kind": "local",
+  "role": "anchor_signed_median",
+  "role_label": "Median signed Δχ₁",
+  "arm": "Servalcat",
+  "case": "6PVM",
+  "residue": "GLU501",
+  "delta_chi1_deg": 2.67,
+  "reference_pdb": "7MIJ",
+  "map": "EMD-20493",
+  "contour_levels_raw": [
+   0.394227383210359,
+   0.5980181092595536,
+   0.801808835308748
+  ],
+  "files": {
+   "view": {
+    "file": "s1_anchor_signed_median_servalcat_6pvm_386_glu-2000.webp",
+    "width": 2000,
+    "height": 1673,
+    "bytes": 169870
+   },
+   "view_small": {
+    "file": "s1_anchor_signed_median_servalcat_6pvm_386_glu-960.webp",
+    "width": 960,
+    "height": 803,
+    "bytes": 65114
+   },
+   "locator": {
+    "file": "s1_anchor_signed_median_servalcat_6pvm_386_glu-locator.webp",
+    "width": 720,
+    "height": 786,
+    "bytes": 74810
+   }
+  }
+ },
+ {
+  "id": "s2_typical_absolute_median_phenix_x1_5ywd_38_lys",
+  "figure": "S2",
+  "kind": "local",
+  "role": "typical_absolute_median",
+  "role_label": "Median |Δχ₁|",
+  "arm": "Phenix ×1",
+  "case": "5YWD",
+  "residue": "LYS252",
+  "delta_chi1_deg": -3.46,
+  "reference_pdb": "7W4O",
+  "map": "EMD-6853",
+  "contour_levels_raw": [
+   0.03005713473477701,
+   0.04477570003088717,
+   0.059494265326997336
+  ],
+  "files": {
+   "view": {
+    "file": "s2_typical_absolute_median_phenix_x1_5ywd_38_lys-2000.webp",
+    "width": 1952,
+    "height": 2260,
+    "bytes": 128922
+   },
+   "view_small": {
+    "file": "s2_typical_absolute_median_phenix_x1_5ywd_38_lys-960.webp",
+    "width": 960,
+    "height": 1111,
+    "bytes": 53738
+   },
+   "locator": {
+    "file": "s2_typical_absolute_median_phenix_x1_5ywd_38_lys-locator.webp",
+    "width": 720,
+    "height": 424,
+    "bytes": 55284
+   }
+  }
+ },
+ {
+  "id": "s2_typical_absolute_median_phenix_x2_6xh7_395_ser",
+  "figure": "S2",
+  "kind": "local",
+  "role": "typical_absolute_median",
+  "role_label": "Median |Δχ₁|",
+  "arm": "Phenix ×2",
+  "case": "6XH7",
+  "residue": "SER398",
+  "delta_chi1_deg": 4.84,
+  "reference_pdb": "6XL5",
+  "map": "EMD-22184",
+  "contour_levels_raw": [
+   0.0082775975594647,
+   0.011094419212179513,
+   0.013911240864894326
+  ],
+  "files": {
+   "view": {
+    "file": "s2_typical_absolute_median_phenix_x2_6xh7_395_ser-2000.webp",
+    "width": 2000,
+    "height": 2060,
+    "bytes": 230548
+   },
+   "view_small": {
+    "file": "s2_typical_absolute_median_phenix_x2_6xh7_395_ser-960.webp",
+    "width": 960,
+    "height": 989,
+    "bytes": 89640
+   },
+   "locator": {
+    "file": "s2_typical_absolute_median_phenix_x2_6xh7_395_ser-locator.webp",
+    "width": 720,
+    "height": 617,
+    "bytes": 63732
+   }
+  }
+ },
+ {
+  "id": "s2_typical_absolute_median_cryonet_5gjw_403_asn",
+  "figure": "S2",
+  "kind": "local",
+  "role": "typical_absolute_median",
+  "role_label": "Median |Δχ₁|",
+  "arm": "CryoNet.Refine",
+  "case": "5GJW",
+  "residue": "ASN497",
+  "delta_chi1_deg": -3.51,
+  "reference_pdb": "6JPA",
+  "map": "EMD-9515",
+  "contour_levels_raw": [
+   0.026527136322479876,
+   0.03757217868061316,
+   0.048617221038746446
+  ],
+  "files": {
+   "view": {
+    "file": "s2_typical_absolute_median_cryonet_5gjw_403_asn-2000.webp",
+    "width": 2000,
+    "height": 2258,
+    "bytes": 220910
+   },
+   "view_small": {
+    "file": "s2_typical_absolute_median_cryonet_5gjw_403_asn-960.webp",
+    "width": 960,
+    "height": 1084,
+    "bytes": 89128
+   },
+   "locator": {
+    "file": "s2_typical_absolute_median_cryonet_5gjw_403_asn-locator.webp",
+    "width": 720,
+    "height": 422,
+    "bytes": 42696
+   }
+  }
+ },
+ {
+  "id": "s2_typical_absolute_median_servalcat_6pvp_208_asp",
+  "figure": "S2",
+  "kind": "local",
+  "role": "typical_absolute_median",
+  "role_label": "Median |Δχ₁|",
+  "arm": "Servalcat",
+  "case": "6PVP",
+  "residue": "ASP293",
+  "delta_chi1_deg": -8.35,
+  "reference_pdb": "7MIJ",
+  "map": "EMD-20496",
+  "contour_levels_raw": [
+   0.01682396047288339,
+   0.023071777354729865,
+   0.02931959423657634
+  ],
+  "files": {
+   "view": {
+    "file": "s2_typical_absolute_median_servalcat_6pvp_208_asp-2000.webp",
+    "width": 2000,
+    "height": 1603,
+    "bytes": 155718
+   },
+   "view_small": {
+    "file": "s2_typical_absolute_median_servalcat_6pvp_208_asp-960.webp",
+    "width": 960,
+    "height": 769,
+    "bytes": 59516
+   },
+   "locator": {
+    "file": "s2_typical_absolute_median_servalcat_6pvp_208_asp-locator.webp",
+    "width": 720,
+    "height": 857,
+    "bytes": 72530
+   }
+  }
+ },
+ {
+  "id": "s2_large_nonextreme_q75_phenix_x1_6b70_124_leu",
+  "figure": "S2",
+  "kind": "local",
+  "role": "large_nonextreme_q75",
+  "role_label": "75th-percentile |Δχ₁|",
+  "arm": "Phenix ×1",
+  "case": "6B70",
+  "residue": "LEU170",
+  "delta_chi1_deg": 8.03,
+  "reference_pdb": "7K1F",
+  "map": "EMD-7062",
+  "contour_levels_raw": [
+   0.04105280130200205,
+   0.0515321692492825,
+   0.06201153719656296
+  ],
+  "files": {
+   "view": {
+    "file": "s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-2000.webp",
+    "width": 2000,
+    "height": 1585,
+    "bytes": 114906
+   },
+   "view_small": {
+    "file": "s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-960.webp",
+    "width": 960,
+    "height": 761,
+    "bytes": 45720
+   },
+   "locator": {
+    "file": "s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-locator.webp",
+    "width": 720,
+    "height": 701,
+    "bytes": 67052
+   }
+  }
+ },
+ {
+  "id": "s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln",
+  "figure": "S2",
+  "kind": "local",
+  "role": "large_nonextreme_q75",
+  "role_label": "75th-percentile |Δχ₁|",
+  "arm": "Phenix ×2",
+  "case": "6WBI",
+  "residue": "GLN262",
+  "delta_chi1_deg": 10.69,
+  "reference_pdb": "7DWB",
+  "map": "EMD-21590",
+  "contour_levels_raw": [
+   0.01226605834214618,
+   0.015513456645776982,
+   0.018760854949407782
+  ],
+  "files": {
+   "view": {
+    "file": "s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-2000.webp",
+    "width": 1880,
+    "height": 1638,
+    "bytes": 176190
+   },
+   "view_small": {
+    "file": "s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-960.webp",
+    "width": 960,
+    "height": 836,
+    "bytes": 76882
+   },
+   "locator": {
+    "file": "s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-locator.webp",
+    "width": 720,
+    "height": 643,
+    "bytes": 62004
+   }
+  }
+ },
+ {
+  "id": "s2_large_nonextreme_q75_cryonet_7e5z_492_arg",
+  "figure": "S2",
+  "kind": "local",
+  "role": "large_nonextreme_q75",
+  "role_label": "75th-percentile |Δχ₁|",
+  "arm": "CryoNet.Refine",
+  "case": "7E5Z",
+  "residue": "ARG576",
+  "delta_chi1_deg": 6.97,
+  "reference_pdb": "7VW6",
+  "map": "EMD-30995",
+  "contour_levels_raw": [
+   0.20412955551293716,
+   0.27938339963187436,
+   0.3546372437508116
+  ],
+  "files": {
+   "view": {
+    "file": "s2_large_nonextreme_q75_cryonet_7e5z_492_arg-2000.webp",
+    "width": 2000,
+    "height": 1768,
+    "bytes": 190438
+   },
+   "view_small": {
+    "file": "s2_large_nonextreme_q75_cryonet_7e5z_492_arg-960.webp",
+    "width": 960,
+    "height": 849,
+    "bytes": 73078
+   },
+   "locator": {
+    "file": "s2_large_nonextreme_q75_cryonet_7e5z_492_arg-locator.webp",
+    "width": 720,
+    "height": 433,
+    "bytes": 47140
+   }
+  }
+ },
+ {
+  "id": "s2_large_nonextreme_q75_servalcat_6b70_203_tyr",
+  "figure": "S2",
+  "kind": "local",
+  "role": "large_nonextreme_q75",
+  "role_label": "75th-percentile |Δχ₁|",
+  "arm": "Servalcat",
+  "case": "6B70",
+  "residue": "TYR249",
+  "delta_chi1_deg": -16.09,
+  "reference_pdb": "7K1F",
+  "map": "EMD-7062",
+  "contour_levels_raw": [
+   0.049397029088930504,
+   0.06059063175581607,
+   0.07178423442270163
+  ],
+  "files": {
+   "view": {
+    "file": "s2_large_nonextreme_q75_servalcat_6b70_203_tyr-2000.webp",
+    "width": 2000,
+    "height": 1554,
+    "bytes": 143492
+   },
+   "view_small": {
+    "file": "s2_large_nonextreme_q75_servalcat_6b70_203_tyr-960.webp",
+    "width": 960,
+    "height": 746,
+    "bytes": 55192
+   },
+   "locator": {
+    "file": "s2_large_nonextreme_q75_servalcat_6b70_203_tyr-locator.webp",
+    "width": 720,
+    "height": 701,
+    "bytes": 67020
+   }
+  }
+ },
+ {
+  "id": "concordant_typical_phenix_6s5t_184_asp",
+  "figure": "S3",
+  "kind": "halfmap_pair",
+  "role": "concordant_typical",
+  "direction_class": "concordant",
+  "arm": "Phenix ×1",
+  "case": "6S5T",
+  "residue": "ASP283",
+  "delta_a_to_b_deg": -4.05,
+  "delta_b_to_a_deg": -5.35,
+  "reference_pdb": "7MIR",
+  "files": {
+   "a_to_b": {
+    "file": "concordant_typical_phenix_6s5t_184_asp-a_to_b-1800.webp",
+    "width": 1800,
+    "height": 1576,
+    "bytes": 153906
+   },
+   "a_to_b_small": {
+    "file": "concordant_typical_phenix_6s5t_184_asp-a_to_b-900.webp",
+    "width": 900,
+    "height": 788,
+    "bytes": 62642
+   },
+   "b_to_a": {
+    "file": "concordant_typical_phenix_6s5t_184_asp-b_to_a-1800.webp",
+    "width": 1800,
+    "height": 1483,
+    "bytes": 156304
+   },
+   "b_to_a_small": {
+    "file": "concordant_typical_phenix_6s5t_184_asp-b_to_a-900.webp",
+    "width": 900,
+    "height": 741,
+    "bytes": 63180
+   },
+   "a_to_b_registered": {
+    "file": "concordant_typical_phenix_6s5t_184_asp-a_to_b-registered.webp",
+    "width": 1800,
+    "height": 1568,
+    "bytes": 153046
+   },
+   "b_to_a_registered": {
+    "file": "concordant_typical_phenix_6s5t_184_asp-b_to_a-registered.webp",
+    "width": 1800,
+    "height": 1568,
+    "bytes": 149440
+   },
+   "locator": {
+    "file": "concordant_typical_phenix_6s5t_184_asp-locator.webp",
+    "width": 720,
+    "height": 575,
+    "bytes": 61568
+   }
+  }
+ },
+ {
+  "id": "concordant_typical_servalcat_7e5z_355_ser",
+  "figure": "S3",
+  "kind": "halfmap_pair",
+  "role": "concordant_typical",
+  "direction_class": "concordant",
+  "arm": "Servalcat",
+  "case": "7E5Z",
+  "residue": "SER439",
+  "delta_a_to_b_deg": -8.03,
+  "delta_b_to_a_deg": -8.67,
+  "reference_pdb": "7VW6",
+  "files": {
+   "a_to_b": {
+    "file": "concordant_typical_servalcat_7e5z_355_ser-a_to_b-1800.webp",
+    "width": 1800,
+    "height": 1506,
+    "bytes": 183964
+   },
+   "a_to_b_small": {
+    "file": "concordant_typical_servalcat_7e5z_355_ser-a_to_b-900.webp",
+    "width": 900,
+    "height": 753,
+    "bytes": 74712
+   },
+   "b_to_a": {
+    "file": "concordant_typical_servalcat_7e5z_355_ser-b_to_a-1800.webp",
+    "width": 1800,
+    "height": 1557,
+    "bytes": 175440
+   },
+   "b_to_a_small": {
+    "file": "concordant_typical_servalcat_7e5z_355_ser-b_to_a-900.webp",
+    "width": 900,
+    "height": 778,
+    "bytes": 71316
+   },
+   "a_to_b_registered": {
+    "file": "concordant_typical_servalcat_7e5z_355_ser-a_to_b-registered.webp",
+    "width": 1800,
+    "height": 1526,
+    "bytes": 183990
+   },
+   "b_to_a_registered": {
+    "file": "concordant_typical_servalcat_7e5z_355_ser-b_to_a-registered.webp",
+    "width": 1800,
+    "height": 1526,
+    "bytes": 171798
+   },
+   "locator": {
+    "file": "concordant_typical_servalcat_7e5z_355_ser-locator.webp",
+    "width": 720,
+    "height": 435,
+    "bytes": 45720
+   }
+  }
+ },
+ {
+  "id": "concordant_typical_cryonet_6b3q_303_leu",
+  "figure": "S3",
+  "kind": "halfmap_pair",
+  "role": "concordant_typical",
+  "direction_class": "concordant",
+  "arm": "CryoNet.Refine",
+  "case": "6B3Q",
+  "residue": "LEU350",
+  "delta_a_to_b_deg": -3.86,
+  "delta_b_to_a_deg": -3.7,
+  "reference_pdb": "7K1F",
+  "files": {
+   "a_to_b": {
+    "file": "concordant_typical_cryonet_6b3q_303_leu-a_to_b-1800.webp",
+    "width": 1800,
+    "height": 1702,
+    "bytes": 163876
+   },
+   "a_to_b_small": {
+    "file": "concordant_typical_cryonet_6b3q_303_leu-a_to_b-900.webp",
+    "width": 900,
+    "height": 851,
+    "bytes": 65242
+   },
+   "b_to_a": {
+    "file": "concordant_typical_cryonet_6b3q_303_leu-b_to_a-1800.webp",
+    "width": 1800,
+    "height": 1713,
+    "bytes": 165572
+   },
+   "b_to_a_small": {
+    "file": "concordant_typical_cryonet_6b3q_303_leu-b_to_a-900.webp",
+    "width": 900,
+    "height": 856,
+    "bytes": 66160
+   },
+   "a_to_b_registered": {
+    "file": "concordant_typical_cryonet_6b3q_303_leu-a_to_b-registered.webp",
+    "width": 1800,
+    "height": 1701,
+    "bytes": 163528
+   },
+   "b_to_a_registered": {
+    "file": "concordant_typical_cryonet_6b3q_303_leu-b_to_a-registered.webp",
+    "width": 1800,
+    "height": 1701,
+    "bytes": 163688
+   },
+   "locator": {
+    "file": "concordant_typical_cryonet_6b3q_303_leu-locator.webp",
+    "width": 720,
+    "height": 425,
+    "bytes": 52850
+   }
+  }
+ },
+ {
+  "id": "discordant_typical_phenix_6b3q_763_leu",
+  "figure": "S3",
+  "kind": "halfmap_pair",
+  "role": "discordant_typical",
+  "direction_class": "discordant_or_zero",
+  "arm": "Phenix ×1",
+  "case": "6B3Q",
+  "residue": "LEU810",
+  "delta_a_to_b_deg": -1.59,
+  "delta_b_to_a_deg": 4.35,
+  "reference_pdb": "7K1F",
+  "files": {
+   "a_to_b": {
+    "file": "discordant_typical_phenix_6b3q_763_leu-a_to_b-1800.webp",
+    "width": 1800,
+    "height": 1604,
+    "bytes": 138642
+   },
+   "a_to_b_small": {
+    "file": "discordant_typical_phenix_6b3q_763_leu-a_to_b-900.webp",
+    "width": 900,
+    "height": 802,
+    "bytes": 55334
+   },
+   "b_to_a": {
+    "file": "discordant_typical_phenix_6b3q_763_leu-b_to_a-1800.webp",
+    "width": 1800,
+    "height": 1604,
+    "bytes": 146130
+   },
+   "b_to_a_small": {
+    "file": "discordant_typical_phenix_6b3q_763_leu-b_to_a-900.webp",
+    "width": 900,
+    "height": 802,
+    "bytes": 58420
+   },
+   "a_to_b_registered": {
+    "file": "discordant_typical_phenix_6b3q_763_leu-a_to_b-registered.webp",
+    "width": 1800,
+    "height": 1611,
+    "bytes": 138106
+   },
+   "b_to_a_registered": {
+    "file": "discordant_typical_phenix_6b3q_763_leu-b_to_a-registered.webp",
+    "width": 1800,
+    "height": 1611,
+    "bytes": 143098
+   },
+   "locator": {
+    "file": "discordant_typical_phenix_6b3q_763_leu-locator.webp",
+    "width": 720,
+    "height": 425,
+    "bytes": 52792
+   }
+  }
+ },
+ {
+  "id": "discordant_typical_servalcat_6b3q_665_leu",
+  "figure": "S3",
+  "kind": "halfmap_pair",
+  "role": "discordant_typical",
+  "direction_class": "discordant_or_zero",
+  "arm": "Servalcat",
+  "case": "6B3Q",
+  "residue": "LEU712",
+  "delta_a_to_b_deg": -5.47,
+  "delta_b_to_a_deg": 4.41,
+  "reference_pdb": "7K1F",
+  "files": {
+   "a_to_b": {
+    "file": "discordant_typical_servalcat_6b3q_665_leu-a_to_b-1800.webp",
+    "width": 1800,
+    "height": 1825,
+    "bytes": 157336
+   },
+   "a_to_b_small": {
+    "file": "discordant_typical_servalcat_6b3q_665_leu-a_to_b-900.webp",
+    "width": 900,
+    "height": 912,
+    "bytes": 64382
+   },
+   "b_to_a": {
+    "file": "discordant_typical_servalcat_6b3q_665_leu-b_to_a-1800.webp",
+    "width": 1800,
+    "height": 1844,
+    "bytes": 153716
+   },
+   "b_to_a_small": {
+    "file": "discordant_typical_servalcat_6b3q_665_leu-b_to_a-900.webp",
+    "width": 900,
+    "height": 922,
+    "bytes": 63478
+   },
+   "a_to_b_registered": {
+    "file": "discordant_typical_servalcat_6b3q_665_leu-a_to_b-registered.webp",
+    "width": 1800,
+    "height": 1825,
+    "bytes": 156012
+   },
+   "b_to_a_registered": {
+    "file": "discordant_typical_servalcat_6b3q_665_leu-b_to_a-registered.webp",
+    "width": 1800,
+    "height": 1825,
+    "bytes": 149702
+   },
+   "locator": {
+    "file": "discordant_typical_servalcat_6b3q_665_leu-locator.webp",
+    "width": 720,
+    "height": 425,
+    "bytes": 52818
+   }
+  }
+ },
+ {
+  "id": "discordant_typical_cryonet_6b70_138_asn",
+  "figure": "S3",
+  "kind": "halfmap_pair",
+  "role": "discordant_typical",
+  "direction_class": "discordant_or_zero",
+  "arm": "CryoNet.Refine",
+  "case": "6B70",
+  "residue": "ASN184",
+  "delta_a_to_b_deg": -1.07,
+  "delta_b_to_a_deg": 0.46,
+  "reference_pdb": "7K1F",
+  "files": {
+   "a_to_b": {
+    "file": "discordant_typical_cryonet_6b70_138_asn-a_to_b-1800.webp",
+    "width": 1800,
+    "height": 1588,
+    "bytes": 138396
+   },
+   "a_to_b_small": {
+    "file": "discordant_typical_cryonet_6b70_138_asn-a_to_b-900.webp",
+    "width": 900,
+    "height": 794,
+    "bytes": 58598
+   },
+   "b_to_a": {
+    "file": "discordant_typical_cryonet_6b70_138_asn-b_to_a-1800.webp",
+    "width": 1800,
+    "height": 1474,
+    "bytes": 143180
+   },
+   "b_to_a_small": {
+    "file": "discordant_typical_cryonet_6b70_138_asn-b_to_a-900.webp",
+    "width": 900,
+    "height": 737,
+    "bytes": 58434
+   },
+   "a_to_b_registered": {
+    "file": "discordant_typical_cryonet_6b70_138_asn-a_to_b-registered.webp",
+    "width": 1800,
+    "height": 1578,
+    "bytes": 136840
+   },
+   "b_to_a_registered": {
+    "file": "discordant_typical_cryonet_6b70_138_asn-b_to_a-registered.webp",
+    "width": 1800,
+    "height": 1578,
+    "bytes": 143412
+   },
+   "locator": {
+    "file": "discordant_typical_cryonet_6b70_138_asn-locator.webp",
+    "width": 720,
+    "height": 701,
+    "bytes": 65388
+   }
+  }
+ }
+]

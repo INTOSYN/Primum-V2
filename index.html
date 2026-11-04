@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Primum: a decision benchmark for selecting cryo-EM re-refinements</title>
+  <meta name="description" content="Primum benchmarks cryo-EM re-refinement as a decision against keeping the deposited model. In a prespecified 3.0–3.6 Å cohort, selecting the highest map correlation increased side-chain χ1 disagreement by 2.4° (95% interval 2.1–2.7°).">
+  <meta name="author" content="Xingyu Yi, Xinya Zhang, Lizhe Zhang, Jinhua Yi">
+  <meta name="theme-color" content="#050b15">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Primum: a decision benchmark for selecting cryo-EM re-refinements">
+  <meta property="og:description" content="Selecting the re-refinement with the highest map correlation increased packed-side-chain χ1 disagreement in 119 of 131 sequence groups.">
+  <meta property="og:image" content="static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-2000.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="static/img/primum-mark.svg?v=aedb859be2" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>try { var t = localStorage.getItem("primum-theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <link rel="stylesheet" href="static/css/site.css?v=486d8cff91">
+  <script defer src="static/js/density-emd7041.js?v=eb062dd9f6"></script>
+  <script defer src="static/js/site.js?v=86daa79dbc"></script>
+</head>
+<body>
+  <a class="skip" href="#findings">Skip to the findings</a>
+  <header class="nav" data-state="top">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top"><img src="static/img/primum-mark.svg?v=aedb859be2" width="34" height="34" alt="">Primum</a>
+      <nav class="nav__links" id="nav-links" aria-label="Sections">
+        <a href="#findings">Findings</a><a href="#benchmark">Benchmark</a><a href="#results">Results</a><a href="#atlas">Atlas</a><a href="#figures">Figures</a><a href="#access">Data &amp; code</a>
+      </nav>
+      <div class="nav__tools">
+        <button class="icon-btn theme-btn" type="button" aria-label="Switch theme"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13.4A8.5 8.5 0 1 1 10.6 3.5a6.6 6.6 0 0 0 9.9 9.9z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg></button>
+        <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open the section menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+  <section class="hero" id="top" aria-labelledby="title">
+    <canvas class="hero__field" data-z0="141" data-z1="219" data-nz="320" aria-hidden="true"></canvas>
+    <div class="hero__veil" aria-hidden="true"></div>
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">Cryo-EM model re-refinement · decision benchmark</p>
+        <h1 class="hero__title" id="title">Primum</h1>
+        <p class="hero__sub">A decision benchmark for selecting <span class="nw">cryo-EM</span> <span class="nw">re-refinements</span></p>
+        <p class="hero__lede">Selecting the candidate with the highest map correlation increased packed-side-chain χ<sub>1</sub> disagreement with higher-resolution structures in <strong>119 of 131</strong> sequence groups.</p>
+        <div class="people">
+          <ul class="authors" aria-label="Authors"><li class="author"><button type="button" class="author__name" aria-describedby="author-card-1">Xingyu Yi<sup>1,*</sup></button><div class="author-card" id="author-card-1" role="tooltip"><div class="ac-head"><span class="ac-mono" aria-hidden="true">XY</span><span class="ac-name">Xingyu Yi</span></div><div class="ac-roles"><div class="ac-r"><span class="ac-role">Chief Scientist</span><span class="ac-org">INTOSYN AI Labs</span></div></div></div></li><li class="author"><button type="button" class="author__name" aria-describedby="author-card-2">Xinya Zhang<sup>1,2</sup></button><div class="author-card" id="author-card-2" role="tooltip"><div class="ac-head"><span class="ac-mono" aria-hidden="true">XZ</span><span class="ac-name">Xinya Zhang</span></div><div class="ac-roles"><div class="ac-r"><span class="ac-role">Researcher</span><span class="ac-org">INTOSYN AI Labs</span></div><div class="ac-r"><span class="ac-role">Instructor</span><span class="ac-org">Columbia University</span></div></div></div></li><li class="author"><button type="button" class="author__name" aria-describedby="author-card-3">Lizhe Zhang<sup>3</sup></button><div class="author-card" id="author-card-3" role="tooltip"><div class="ac-head"><span class="ac-mono" aria-hidden="true">LZ</span><span class="ac-name">Lizhe Zhang</span></div><div class="ac-roles"><div class="ac-r"><span class="ac-role">Ph.D., Molecular Pharmacology</span><span class="ac-org">University of Toronto</span></div></div></div></li><li class="author"><button type="button" class="author__name" aria-describedby="author-card-4">Jinhua Yi<sup>1</sup></button><div class="author-card" id="author-card-4" role="tooltip"><div class="ac-head"><span class="ac-mono" aria-hidden="true">JY</span><span class="ac-name">Jinhua Yi</span></div><div class="ac-roles"><div class="ac-r"><span class="ac-role">Principal Biochemical Engineer</span><span class="ac-org">INTOSYN AI Labs</span></div></div></div></li></ul>
+          <ul class="affils" aria-label="Affiliations"><li><sup>1</sup>INTOSYN AI Labs</li><li><sup>2</sup>Teachers College, Columbia University</li><li><sup>3</sup>Department of Pharmacology and Toxicology, University of Toronto</li></ul>
+          <p class="corr"><sup>*</sup>Corresponding author</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn--ice" href="https://www.biorxiv.org/content/10.64898/2026.10.31.763284v1" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6"/></svg>bioRxiv preprint</a>
+          <a class="btn btn--ghost" href="2026.10.31.763284v1.full.pdf">PDF</a>
+          <a class="btn btn--ghost" href="#access">Data access</a>
+          <a class="btn btn--ghost" href="https://github.com/INTOSYN/primum" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <figure class="specimen" aria-label="Local examples at the 75th percentile of |Δχ₁|">
+        <div class="specimen__head"><span>Supplementary Fig. S2e–h</span><span>75th-percentile |Δχ<sub>1</sub>|</span></div>
+        <button class="frame" type="button" data-view data-group="hero" data-src="static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-2000.webp" data-w="1880" data-h="1638" data-title="Phenix ×2 · 6WBI GLN262 · Δχ₁ +10.69°" data-cap="cap-s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln" aria-label="Enlarge this example">
+          <img class="view" src="static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-960.webp" srcset="static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-960.webp 960w, static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-2000.webp 1880w" sizes="(min-width: 960px) 440px, 92vw" width="960" height="836" fetchpriority="high" decoding="async" alt="Phenix ×2 re-refinement of 6WBI GLN262 with the starting and reference side chains and the deposited map">
+          <img class="locator" src="static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-locator.webp" width="720" height="643" decoding="async" alt="">
+          <span class="zoom-tag">Enlarge</span>
+        </button>
+        <figcaption class="specimen__cap">
+          <span class="arm" style="--c: var(--c-px2)"><i></i><span>Phenix ×2</span></span>
+          <span class="res">6WBI GLN262</span><span class="delta">Δχ₁ +10.69°</span>
+          <span class="ref">reference 7DWB · EMD-21590</span><span class="dir">further from the reference</span>
+        </figcaption>
+        <div class="seg" role="tablist" aria-label="Refinement protocol"><button type="button" role="tab" aria-selected="false" tabindex="-1" data-id="s2_large_nonextreme_q75_phenix_x1_6b70_124_leu" style="--c: var(--c-px1)" aria-label="Phenix ×1, 6B70 LEU170"><i></i>Phenix ×1</button><button type="button" role="tab" aria-selected="true" tabindex="0" data-id="s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln" style="--c: var(--c-px2)" aria-label="Phenix ×2, 6WBI GLN262"><i></i>Phenix ×2</button><button type="button" role="tab" aria-selected="false" tabindex="-1" data-id="s2_large_nonextreme_q75_cryonet_7e5z_492_arg" style="--c: var(--c-cn)" aria-label="CryoNet.Refine, 7E5Z ARG576"><i></i>CryoNet</button><button type="button" role="tab" aria-selected="false" tabindex="-1" data-id="s2_large_nonextreme_q75_servalcat_6b70_203_tyr" style="--c: var(--c-sv)" aria-label="Servalcat, 6B70 TYR249"><i></i>Servalcat</button></div>
+        <ul class="keys" aria-label="Render key">
+          <li class="key"><span class="stick" style="--c: var(--c-start)"></span>Starting model</li>
+          <li class="key"><span class="stick" style="--c: linear-gradient(90deg, var(--c-px1), var(--c-px2), var(--c-cn), var(--c-sv))"></span>Re-refined</li>
+          <li class="key"><span class="stick" style="--c: var(--c-ref)"></span>Higher-resolution reference</li>
+          <li class="key"><span class="mapkey"></span>Deposited map</li>
+        </ul>
+      </figure>
+    </div>
+    <p class="wrap hero__readout"><span class="pulse" aria-hidden="true"></span><span id="readout">EMD-7041 · deposited map of 6B3Q · contours 1.0, 1.6, 2.6 σ</span></p>
+  </section>
+
+  <section class="section" id="findings" aria-labelledby="findings-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2 id="findings-h">Main findings</h2></div>
+        <div class="intro"><p>In a prespecified cohort of single-particle entries at 3.0–3.6&nbsp;Å, each deposited model was re-refined with four protocols, and a rule chose one of five actions, including keeping the deposited model. The choice was scored against a separately determined, higher-resolution structure of the same protein.</p></div>
+      </div>
+      <div class="tiles">
+        <div class="tile"><div class="value">+2.41°</div><div class="label">χ<sub>1</sub> disagreement added by choosing the highest map correlation</div><div class="meta">3.0–3.6 Å cohort · 167 entries<br>95% interval 2.12–2.71°</div></div>
+        <div class="tile"><div class="value">119<span class="of">of</span>131</div><div class="label">sequence groups ended further from the reference than with no operation</div><div class="meta">91% of groups · Servalcat chosen in 147 of 167 entries</div></div>
+        <div class="tile"><div class="value">+2.29°</div><div class="label">loss when selection used a half map withheld from re-refinement</div><div class="meta">99 entries · 82 groups<br>95% interval 1.70–2.97°</div></div>
+        <div class="tile"><div class="value">50<span class="of">of</span>53</div><div class="label">low/high-resolution pairs from the same study showed positive loss</div><div class="meta">mean +3.43° · 95% interval 2.85–4.02°</div></div>
+      </div>
+      <div class="shift">
+        <p>Across 37,504 scored side chains, the map-fit choice moved 2,806 more than 20° further from the reference and 1,339 more than 20° closer. Group-weighted, that is 7.2% against 3.7%. The fraction of side chains beyond 1&nbsp;Å local RMSD rose by 2.4 percentage points (95% interval 1.5–3.3).</p>
+        <div class="bars" role="group" aria-label="Side chains whose χ1 disagreement changed by more than 20 degrees under highest-map-correlation selection">
+          <div class="bar-row"><div class="name">Further from the reference<span>2,806 side chains</span></div><div class="bar-track"><div class="bar-fill" style="--w: 90%; --fill: var(--series-full)"></div><span class="bar-val">7.2%</span></div></div>
+          <div class="bar-row"><div class="name">Closer to the reference<span>1,339 side chains</span></div><div class="bar-track"><div class="bar-fill" style="--w: 46.25%; --fill: var(--mark-neutral)"></div><span class="bar-val">3.7%</span></div></div>
+          <div class="bar-row"><div></div><div class="bar-axis"></div></div>
+          <p class="bars-note">Group-weighted share of 37,504 scored side chains whose χ<sub>1</sub> disagreement changed by more than 20°.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--card" id="benchmark" aria-labelledby="bench-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2 id="bench-h">How the benchmark works</h2></div>
+        <div class="intro"><p>“We treat re-refinement as a decision in which the deposited model remains a scored no-operation action alongside the refined candidates. A stated rule, such as taking the candidate with the highest same-map correlation, selects one action in each case, and the selected model is scored against a separately determined, higher-resolution structure of the same protein.”</p><p><cite>From the introduction</cite></p></div>
+      </div>
+      <ol class="flow">
+        <li><span class="n">01 · Case</span><svg viewBox="0 0 160 56" aria-hidden="true"><path class="glyph-soft" d="M20 30c-2-12 10-20 22-17 8-9 24-7 28 3 12-3 24 6 21 17 6 9-2 19-13 17-6 8-20 8-26 1-11 4-24-1-24-10-7-2-10-7-8-11z"/><path class="glyph-soft" d="M30 31c2-8 11-12 19-9 6-6 17-4 20 3 8-1 15 5 13 12 3 6-3 11-10 10-5 5-14 5-18 0-8 2-16-2-16-8-6-1-9-4-8-8z"/><path class="glyph-ink" d="M38 38l12-12 13 8 12-13 11 9" stroke="var(--c-start)"/><circle cx="50" cy="26" r="2.6" fill="var(--c-start)"/><circle cx="75" cy="21" r="2.6" fill="var(--c-start)"/><text x="106" y="34" class="tick" style="fill: var(--muted); font-family: var(--font-mono); font-size: 11px">map + model</text></svg><h3>A deposited model and its map</h3><p>Keeping the model unchanged is the no-operation action.</p></li>
+        <li><span class="n">02 · Candidates</span><svg viewBox="0 0 160 56" aria-hidden="true"><circle cx="16" cy="28" r="9" fill="none" stroke="var(--c-start)" stroke-width="2"/><circle cx="48" cy="28" r="9" fill="var(--c-px1)"/><circle cx="78" cy="28" r="9" fill="var(--c-px2)"/><circle cx="108" cy="28" r="9" fill="var(--c-sv)"/><circle cx="138" cy="28" r="9" fill="var(--c-cn)"/></svg><h3>Five actions per case</h3><div class="chips"><span class="chip" style="--c: var(--c-start)"><i></i>No operation</span><span class="chip" style="--c: var(--c-px1)"><i></i>Phenix ×1</span><span class="chip" style="--c: var(--c-px2)"><i></i>Phenix ×2</span><span class="chip" style="--c: var(--c-sv)"><i></i>Servalcat</span><span class="chip" style="--c: var(--c-cn)"><i></i>CryoNet.Refine</span></div></li>
+        <li><span class="n">03 · Rule</span><svg viewBox="0 0 160 56" aria-hidden="true"><g fill="var(--rule)"><rect x="8" y="30" width="18" height="20" rx="3"/><rect x="38" y="24" width="18" height="26" rx="3"/><rect x="68" y="27" width="18" height="23" rx="3"/><rect x="128" y="22" width="18" height="28" rx="3"/></g><rect x="98" y="8" width="18" height="42" rx="3" fill="var(--series-full)"/></svg><h3>A stated rule picks one</h3><p>For example, the highest support-matched same-map CC<sub>mask</sub>; ties favour no operation.</p></li>
+        <li><span class="n">04 · Score</span><svg viewBox="0 0 160 56" aria-hidden="true"><circle cx="40" cy="28" r="22" class="glyph-soft"/><path d="M40 28L58 15" stroke="var(--c-ref)" stroke-width="3" stroke-linecap="round"/><path d="M40 28L61 31" stroke="var(--series-full)" stroke-width="3" stroke-linecap="round"/><path d="M53 18.5A16 16 0 0 1 56 29.6" fill="none" stroke="var(--ink-soft)" stroke-width="1.4"/><circle cx="40" cy="28" r="3" fill="var(--ink)"/><text x="72" y="33" style="fill: var(--muted); font-family: var(--font-mono); font-size: 11px">Δχ₁ to reference</text></svg><h3>Score against a higher-resolution structure</h3><p>χ<sub>1</sub> disagreement over packed side chains, those with at least 18 Cα atoms within 10&nbsp;Å.</p></li>
+      </ol>
+      <dl class="defs">
+        <div class="def"><dt>Selection loss</dt><dd>How much the rule changes disagreement compared with keeping the deposited model. Positive values are worse.<code class="formula">loss = d(selected action) − d(no operation)</code></dd></div>
+        <div class="def"><dt>Observed regret</dt><dd>How far the chosen action is from the best action that was on offer.<code class="formula">regret = d(selected action) − min d(offered actions)</code></dd></div>
+      </dl>
+      <p class="unit-note">d is chemical-symmetry-aware χ<sub>1</sub> disagreement with the comparison structure, in degrees. Cases sharing a comparison structure or a 95% sequence-identity group are averaged first, and those clusters are weighted equally; intervals are 95% bootstrap intervals over clusters.</p>
+    </div>
+  </section>
+
+  <section class="section" id="results" aria-labelledby="results-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2 id="results-h">Results across cohorts</h2></div>
+        <div class="intro"><p>The highest-correlation rule lost agreement in MEDIC, in an independent replication selected from archive metadata, in the 3.0–3.6&nbsp;Å cohort and in low/high-resolution pairs from the same study. Selecting with a half map that was withheld from re-refinement reduced the loss but did not remove it.</p></div>
+      </div>
+      <div class="charts">
+        <div class="chart-card">
+          <h3>Selection loss of the highest-CC<sub>mask</sub> rule</h3>
+          <p class="sub">Mean change in χ<sub>1</sub> disagreement relative to no operation, with 95% intervals</p>
+          <ul class="legend" aria-label="Legend">
+            <li><svg viewBox="0 0 22 14" aria-hidden="true"><line x1="1" x2="21" y1="7" y2="7" class="s-full" stroke-width="2"/><circle cx="11" cy="7" r="5" class="s-full"/></svg>Full map</li>
+            <li><svg viewBox="0 0 22 14" aria-hidden="true"><line x1="1" x2="21" y1="7" y2="7" class="s-half" stroke-width="2"/><rect x="6" y="2" width="10" height="10" rx="1.5" class="s-half" stroke-width="2"/></svg>Evaluation half, after refining against the other half</li>
+          </ul>
+          <div class="chart" id="chart-cohorts"></div>
+          <details class="values"><summary>Show the values</summary><div class="tbl"><table>
+            <thead><tr><th>Cohort</th><th class="num">Full map</th><th class="num">Evaluation half</th></tr></thead>
+            <tbody>
+              <tr><td>MEDIC<br><span class="mono" style="font-size:.75rem;color:var(--muted)">26 cases · 20 clusters</span></td><td class="num">+2.83° [1.85, 3.74]</td><td class="num">not analysed as a rule</td></tr>
+              <tr><td>Earlier replication<br><span class="mono" style="font-size:.75rem;color:var(--muted)">156 entries · 130 groups</span></td><td class="num">+3.16° [2.68, 3.68]</td><td class="num">+1.83° [1.27, 2.44]<br>69 entries</td></tr>
+              <tr><td>3.0–3.6 Å cohort<br><span class="mono" style="font-size:.75rem;color:var(--muted)">167 entries · 131 groups</span></td><td class="num">+2.41° [2.12, 2.71]</td><td class="num">+2.29° [1.70, 2.97]<br>99 entries</td></tr>
+              <tr><td>Within-study pairs<br><span class="mono" style="font-size:.75rem;color:var(--muted)">53 pairs</span></td><td class="num">+3.43° [2.85, 4.02]</td><td class="num">+2.35° [1.60, 3.21]<br>44 pairs</td></tr>
+            </tbody></table></div></details>
+        </div>
+        <div class="chart-card">
+          <h3>Reference strategies, 3.0–3.6 Å cohort</h3>
+          <p class="sub">Overall loss on all 167 entries; a retained deposited model counts as zero</p>
+          <div class="chart" id="chart-strategies"></div>
+          <details class="values"><summary>Show the values</summary><div class="tbl"><table>
+            <thead><tr><th>Strategy</th><th class="num">Overall loss</th><th class="num">Coverage</th></tr></thead>
+            <tbody>
+              <tr><td>Highest CC<sub>mask</sub></td><td class="num">+2.41° [2.12, 2.71]</td><td class="num">96.2%</td></tr>
+              <tr><td>Always CryoNet.Refine</td><td class="num">−0.09° [−0.31, 0.13]</td><td class="num">100%</td></tr>
+              <tr><td>Calibrated EMRinger rule</td><td class="num">−0.06° [−0.23, 0.11]</td><td class="num">65.3%</td></tr>
+              <tr><td>Per-case oracle</td><td class="num">−0.77° [−0.91, −0.63]</td><td class="num">64.5%</td></tr>
+            </tbody></table></div></details>
+        </div>
+      </div>
+      <div class="points">
+        <div class="point"><h3>Servalcat was chosen most often</h3><p>The rule chose Servalcat in 147 of 167 entries. With every Servalcat configuration removed, it still lost 2.32° in MEDIC and 2.14° in the earlier replication.</p></div>
+        <div class="point"><h3>Disagreement increased with map weight</h3><p>Within Servalcat in MEDIC, disagreement rose by 1.55°, 3.15° and 5.15° at half, automatic and double map weight, as CC<sub>mask</sub> gains rose from 0.040 to 0.053 to 0.068.</p></div>
+        <div class="point"><h3>CryoNet.Refine was rarely selected</h3><p>CryoNet.Refine reduced disagreement in the earlier replication (−0.39°) but was selected in only 6 of 156 entries, because other candidates gained more in map fit.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="atlas" aria-labelledby="atlas-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2 id="atlas-h">Molecular examples</h2></div>
+        <div class="intro"><p>Twelve MEDIC residues closest to each protocol's median signed Δχ<sub>1</sub>, median |Δχ<sub>1</sub>| and 75th-percentile |Δχ<sub>1</sub>|, and six bidirectional half-map pairs, all selected by numeric rank. Each scene was rendered with PyMOL from a frozen camera.</p></div>
+      </div>
+      <div class="atlas-bar">
+        <div class="tabs atlas-tabs" role="tablist" aria-label="Atlas view">
+          <button type="button" role="tab" id="tab-local" aria-controls="panel-local" aria-selected="true">Local examples · 12</button>
+          <button type="button" role="tab" id="tab-pairs" aria-controls="panel-pairs" aria-selected="false" tabindex="-1" data-filters="off">Half-map pairs · 6</button>
+        </div>
+        <div class="filters" role="group" aria-label="Filter by refinement protocol">
+          <button type="button" aria-pressed="true" data-arm="all">All protocols</button>
+          <button type="button" aria-pressed="false" data-arm="px1" style="--c: var(--c-px1)"><i></i>Phenix ×1</button>
+          <button type="button" aria-pressed="false" data-arm="px2" style="--c: var(--c-px2)"><i></i>Phenix ×2</button>
+          <button type="button" aria-pressed="false" data-arm="cn" style="--c: var(--c-cn)"><i></i>CryoNet.Refine</button>
+          <button type="button" aria-pressed="false" data-arm="sv" style="--c: var(--c-sv)"><i></i>Servalcat</button>
+        </div>
+      </div>
+      <ul class="atlas-keys" aria-label="Render key">
+        <li class="key"><span class="stick" style="--c: var(--c-start)"></span>Starting model</li>
+        <li class="key"><span class="stick" style="--c: linear-gradient(90deg, var(--c-px1), var(--c-px2), var(--c-cn), var(--c-sv))"></span>Re-refined, in the protocol colour</li>
+        <li class="key"><span class="stick" style="--c: var(--c-ref)"></span>Higher-resolution reference</li>
+        <li class="key"><span class="mapkey"></span>Deposited map, surface and mesh</li>
+        <li class="key">Δχ<sub>1</sub> &gt; 0: further from the reference</li>
+      </ul>
+      <div id="panel-local" role="tabpanel" aria-labelledby="tab-local">
+        <div class="role-group">
+          <h3 class="role-title"><b>Median signed Δχ<sub>1</sub></b><span>Supplementary Fig. S1a–d · Extended Data Fig. 4a,b</span></h3>
+          <div class="cards">
+          <figure class="render-card" data-arm="px1">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s1_anchor_signed_median_phenix_x1_6t7s_394_met-2000.webp" data-w="2000" data-h="1561" data-title="Phenix ×1 · 6T7S MET395 · Δχ₁ +0.52°" data-cap="cap-s1_anchor_signed_median_phenix_x1_6t7s_394_met" aria-label="Enlarge Phenix ×1, 6T7S MET395">
+              <img class="view" src="static/atlas/s1_anchor_signed_median_phenix_x1_6t7s_394_met-960.webp" srcset="static/atlas/s1_anchor_signed_median_phenix_x1_6t7s_394_met-960.webp 960w, static/atlas/s1_anchor_signed_median_phenix_x1_6t7s_394_met-2000.webp 2000w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="749" loading="lazy" decoding="async" alt="Phenix ×1 re-refinement of 6T7S MET395: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 6TA5 in charcoal, deposited map EMD-10371 as surface and mesh">
+              <img class="locator" src="static/atlas/s1_anchor_signed_median_phenix_x1_6t7s_394_met-locator.webp" width="720" height="587" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-px1)"><i></i><span>Phenix ×1</span></span>
+              <span class="res">6T7S MET395</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>+0.52°</span>
+              <span class="ref">reference 6TA5 · EMD-10371 · S1a</span>
+            </figcaption>
+          </figure>
+          <figure class="render-card" data-arm="px2">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s1_anchor_signed_median_phenix_x2_6b3q_687_thr-2000.webp" data-w="2000" data-h="2124" data-title="Phenix ×2 · 6B3Q THR734 · Δχ₁ +0.94°" data-cap="cap-s1_anchor_signed_median_phenix_x2_6b3q_687_thr" aria-label="Enlarge Phenix ×2, 6B3Q THR734">
+              <img class="view" src="static/atlas/s1_anchor_signed_median_phenix_x2_6b3q_687_thr-960.webp" srcset="static/atlas/s1_anchor_signed_median_phenix_x2_6b3q_687_thr-960.webp 960w, static/atlas/s1_anchor_signed_median_phenix_x2_6b3q_687_thr-2000.webp 2000w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="1019" loading="lazy" decoding="async" alt="Phenix ×2 re-refinement of 6B3Q THR734: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 7K1F in charcoal, deposited map EMD-7041 as surface and mesh">
+              <img class="locator" src="static/atlas/s1_anchor_signed_median_phenix_x2_6b3q_687_thr-locator.webp" width="720" height="422" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-px2)"><i></i><span>Phenix ×2</span></span>
+              <span class="res">6B3Q THR734</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>+0.94°</span>
+              <span class="ref">reference 7K1F · EMD-7041 · S1b</span>
+            </figcaption>
+          </figure>
+          <figure class="render-card" data-arm="cn">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s1_anchor_signed_median_cryonet_6pvm_293_val-2000.webp" data-w="2000" data-h="1828" data-title="CryoNet.Refine · 6PVM VAL408 · Δχ₁ −0.00°" data-cap="cap-s1_anchor_signed_median_cryonet_6pvm_293_val" aria-label="Enlarge CryoNet.Refine, 6PVM VAL408">
+              <img class="view" src="static/atlas/s1_anchor_signed_median_cryonet_6pvm_293_val-960.webp" srcset="static/atlas/s1_anchor_signed_median_cryonet_6pvm_293_val-960.webp 960w, static/atlas/s1_anchor_signed_median_cryonet_6pvm_293_val-2000.webp 2000w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="878" loading="lazy" decoding="async" alt="CryoNet.Refine re-refinement of 6PVM VAL408: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 7MIJ in charcoal, deposited map EMD-20493 as surface and mesh">
+              <img class="locator" src="static/atlas/s1_anchor_signed_median_cryonet_6pvm_293_val-locator.webp" width="720" height="786" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-cn)"><i></i><span>CryoNet.Refine</span></span>
+              <span class="res">6PVM VAL408</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>−0.00°</span>
+              <span class="ref">reference 7MIJ · EMD-20493 · S1c</span>
+            </figcaption>
+          </figure>
+          <figure class="render-card" data-arm="sv">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s1_anchor_signed_median_servalcat_6pvm_386_glu-2000.webp" data-w="2000" data-h="1673" data-title="Servalcat · 6PVM GLU501 · Δχ₁ +2.67°" data-cap="cap-s1_anchor_signed_median_servalcat_6pvm_386_glu" aria-label="Enlarge Servalcat, 6PVM GLU501">
+              <img class="view" src="static/atlas/s1_anchor_signed_median_servalcat_6pvm_386_glu-960.webp" srcset="static/atlas/s1_anchor_signed_median_servalcat_6pvm_386_glu-960.webp 960w, static/atlas/s1_anchor_signed_median_servalcat_6pvm_386_glu-2000.webp 2000w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="803" loading="lazy" decoding="async" alt="Servalcat re-refinement of 6PVM GLU501: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 7MIJ in charcoal, deposited map EMD-20493 as surface and mesh">
+              <img class="locator" src="static/atlas/s1_anchor_signed_median_servalcat_6pvm_386_glu-locator.webp" width="720" height="786" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-sv)"><i></i><span>Servalcat</span></span>
+              <span class="res">6PVM GLU501</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>+2.67°</span>
+              <span class="ref">reference 7MIJ · EMD-20493 · S1d</span>
+            </figcaption>
+          </figure>
+          </div>
+        </div>
+        <div class="role-group">
+          <h3 class="role-title"><b>Median |Δχ<sub>1</sub>|</b><span>Supplementary Fig. S2a–d · Extended Data Fig. 4c,d</span></h3>
+          <div class="cards">
+          <figure class="render-card" data-arm="px1">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s2_typical_absolute_median_phenix_x1_5ywd_38_lys-2000.webp" data-w="1952" data-h="2260" data-title="Phenix ×1 · 5YWD LYS252 · Δχ₁ −3.46°" data-cap="cap-s2_typical_absolute_median_phenix_x1_5ywd_38_lys" aria-label="Enlarge Phenix ×1, 5YWD LYS252">
+              <img class="view" src="static/atlas/s2_typical_absolute_median_phenix_x1_5ywd_38_lys-960.webp" srcset="static/atlas/s2_typical_absolute_median_phenix_x1_5ywd_38_lys-960.webp 960w, static/atlas/s2_typical_absolute_median_phenix_x1_5ywd_38_lys-2000.webp 1952w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="1111" loading="lazy" decoding="async" alt="Phenix ×1 re-refinement of 5YWD LYS252: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 7W4O in charcoal, deposited map EMD-6853 as surface and mesh">
+              <img class="locator" src="static/atlas/s2_typical_absolute_median_phenix_x1_5ywd_38_lys-locator.webp" width="720" height="424" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-px1)"><i></i><span>Phenix ×1</span></span>
+              <span class="res">5YWD LYS252</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>−3.46°</span>
+              <span class="ref">reference 7W4O · EMD-6853 · S2a</span>
+            </figcaption>
+          </figure>
+          <figure class="render-card" data-arm="px2">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s2_typical_absolute_median_phenix_x2_6xh7_395_ser-2000.webp" data-w="2000" data-h="2060" data-title="Phenix ×2 · 6XH7 SER398 · Δχ₁ +4.84°" data-cap="cap-s2_typical_absolute_median_phenix_x2_6xh7_395_ser" aria-label="Enlarge Phenix ×2, 6XH7 SER398">
+              <img class="view" src="static/atlas/s2_typical_absolute_median_phenix_x2_6xh7_395_ser-960.webp" srcset="static/atlas/s2_typical_absolute_median_phenix_x2_6xh7_395_ser-960.webp 960w, static/atlas/s2_typical_absolute_median_phenix_x2_6xh7_395_ser-2000.webp 2000w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="989" loading="lazy" decoding="async" alt="Phenix ×2 re-refinement of 6XH7 SER398: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 6XL5 in charcoal, deposited map EMD-22184 as surface and mesh">
+              <img class="locator" src="static/atlas/s2_typical_absolute_median_phenix_x2_6xh7_395_ser-locator.webp" width="720" height="617" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-px2)"><i></i><span>Phenix ×2</span></span>
+              <span class="res">6XH7 SER398</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>+4.84°</span>
+              <span class="ref">reference 6XL5 · EMD-22184 · S2b</span>
+            </figcaption>
+          </figure>
+          <figure class="render-card" data-arm="cn">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s2_typical_absolute_median_cryonet_5gjw_403_asn-2000.webp" data-w="2000" data-h="2258" data-title="CryoNet.Refine · 5GJW ASN497 · Δχ₁ −3.51°" data-cap="cap-s2_typical_absolute_median_cryonet_5gjw_403_asn" aria-label="Enlarge CryoNet.Refine, 5GJW ASN497">
+              <img class="view" src="static/atlas/s2_typical_absolute_median_cryonet_5gjw_403_asn-960.webp" srcset="static/atlas/s2_typical_absolute_median_cryonet_5gjw_403_asn-960.webp 960w, static/atlas/s2_typical_absolute_median_cryonet_5gjw_403_asn-2000.webp 2000w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="1084" loading="lazy" decoding="async" alt="CryoNet.Refine re-refinement of 5GJW ASN497: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 6JPA in charcoal, deposited map EMD-9515 as surface and mesh">
+              <img class="locator" src="static/atlas/s2_typical_absolute_median_cryonet_5gjw_403_asn-locator.webp" width="720" height="422" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-cn)"><i></i><span>CryoNet.Refine</span></span>
+              <span class="res">5GJW ASN497</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>−3.51°</span>
+              <span class="ref">reference 6JPA · EMD-9515 · S2c</span>
+            </figcaption>
+          </figure>
+          <figure class="render-card" data-arm="sv">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s2_typical_absolute_median_servalcat_6pvp_208_asp-2000.webp" data-w="2000" data-h="1603" data-title="Servalcat · 6PVP ASP293 · Δχ₁ −8.35°" data-cap="cap-s2_typical_absolute_median_servalcat_6pvp_208_asp" aria-label="Enlarge Servalcat, 6PVP ASP293">
+              <img class="view" src="static/atlas/s2_typical_absolute_median_servalcat_6pvp_208_asp-960.webp" srcset="static/atlas/s2_typical_absolute_median_servalcat_6pvp_208_asp-960.webp 960w, static/atlas/s2_typical_absolute_median_servalcat_6pvp_208_asp-2000.webp 2000w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="769" loading="lazy" decoding="async" alt="Servalcat re-refinement of 6PVP ASP293: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 7MIJ in charcoal, deposited map EMD-20496 as surface and mesh">
+              <img class="locator" src="static/atlas/s2_typical_absolute_median_servalcat_6pvp_208_asp-locator.webp" width="720" height="857" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-sv)"><i></i><span>Servalcat</span></span>
+              <span class="res">6PVP ASP293</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>−8.35°</span>
+              <span class="ref">reference 7MIJ · EMD-20496 · S2d</span>
+            </figcaption>
+          </figure>
+          </div>
+        </div>
+        <div class="role-group">
+          <h3 class="role-title"><b>75th-percentile |Δχ<sub>1</sub>|</b><span>Supplementary Fig. S2e–h · Extended Data Fig. 4e,f</span></h3>
+          <div class="cards">
+          <figure class="render-card" data-arm="px1">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-2000.webp" data-w="2000" data-h="1585" data-title="Phenix ×1 · 6B70 LEU170 · Δχ₁ +8.03°" data-cap="cap-s2_large_nonextreme_q75_phenix_x1_6b70_124_leu" aria-label="Enlarge Phenix ×1, 6B70 LEU170">
+              <img class="view" src="static/atlas/s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-960.webp" srcset="static/atlas/s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-960.webp 960w, static/atlas/s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-2000.webp 2000w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="761" loading="lazy" decoding="async" alt="Phenix ×1 re-refinement of 6B70 LEU170: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 7K1F in charcoal, deposited map EMD-7062 as surface and mesh">
+              <img class="locator" src="static/atlas/s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-locator.webp" width="720" height="701" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-px1)"><i></i><span>Phenix ×1</span></span>
+              <span class="res">6B70 LEU170</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>+8.03°</span>
+              <span class="ref">reference 7K1F · EMD-7062 · S2e</span>
+            </figcaption>
+          </figure>
+          <figure class="render-card" data-arm="px2">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-2000.webp" data-w="1880" data-h="1638" data-title="Phenix ×2 · 6WBI GLN262 · Δχ₁ +10.69°" data-cap="cap-s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln" aria-label="Enlarge Phenix ×2, 6WBI GLN262">
+              <img class="view" src="static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-960.webp" srcset="static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-960.webp 960w, static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-2000.webp 1880w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="836" loading="lazy" decoding="async" alt="Phenix ×2 re-refinement of 6WBI GLN262: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 7DWB in charcoal, deposited map EMD-21590 as surface and mesh">
+              <img class="locator" src="static/atlas/s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-locator.webp" width="720" height="643" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-px2)"><i></i><span>Phenix ×2</span></span>
+              <span class="res">6WBI GLN262</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>+10.69°</span>
+              <span class="ref">reference 7DWB · EMD-21590 · S2f</span>
+            </figcaption>
+          </figure>
+          <figure class="render-card" data-arm="cn">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s2_large_nonextreme_q75_cryonet_7e5z_492_arg-2000.webp" data-w="2000" data-h="1768" data-title="CryoNet.Refine · 7E5Z ARG576 · Δχ₁ +6.97°" data-cap="cap-s2_large_nonextreme_q75_cryonet_7e5z_492_arg" aria-label="Enlarge CryoNet.Refine, 7E5Z ARG576">
+              <img class="view" src="static/atlas/s2_large_nonextreme_q75_cryonet_7e5z_492_arg-960.webp" srcset="static/atlas/s2_large_nonextreme_q75_cryonet_7e5z_492_arg-960.webp 960w, static/atlas/s2_large_nonextreme_q75_cryonet_7e5z_492_arg-2000.webp 2000w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="849" loading="lazy" decoding="async" alt="CryoNet.Refine re-refinement of 7E5Z ARG576: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 7VW6 in charcoal, deposited map EMD-30995 as surface and mesh">
+              <img class="locator" src="static/atlas/s2_large_nonextreme_q75_cryonet_7e5z_492_arg-locator.webp" width="720" height="433" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-cn)"><i></i><span>CryoNet.Refine</span></span>
+              <span class="res">7E5Z ARG576</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>+6.97°</span>
+              <span class="ref">reference 7VW6 · EMD-30995 · S2g</span>
+            </figcaption>
+          </figure>
+          <figure class="render-card" data-arm="sv">
+            <button class="frame" type="button" data-view data-group="atlas" data-src="static/atlas/s2_large_nonextreme_q75_servalcat_6b70_203_tyr-2000.webp" data-w="2000" data-h="1554" data-title="Servalcat · 6B70 TYR249 · Δχ₁ −16.09°" data-cap="cap-s2_large_nonextreme_q75_servalcat_6b70_203_tyr" aria-label="Enlarge Servalcat, 6B70 TYR249">
+              <img class="view" src="static/atlas/s2_large_nonextreme_q75_servalcat_6b70_203_tyr-960.webp" srcset="static/atlas/s2_large_nonextreme_q75_servalcat_6b70_203_tyr-960.webp 960w, static/atlas/s2_large_nonextreme_q75_servalcat_6b70_203_tyr-2000.webp 2000w" sizes="(min-width: 1100px) 282px, (min-width: 620px) 46vw, 92vw" width="960" height="746" loading="lazy" decoding="async" alt="Servalcat re-refinement of 6B70 TYR249: starting side chain in blue, refined side chain in the protocol colour, higher-resolution reference 7K1F in charcoal, deposited map EMD-7062 as surface and mesh">
+              <img class="locator" src="static/atlas/s2_large_nonextreme_q75_servalcat_6b70_203_tyr-locator.webp" width="720" height="701" loading="lazy" decoding="async" alt="">
+              <span class="zoom-tag">Enlarge</span>
+            </button>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-sv)"><i></i><span>Servalcat</span></span>
+              <span class="res">6B70 TYR249</span><span class="delta"><span class="dl-k">Δχ<sub>1</sub></span>−16.09°</span>
+              <span class="ref">reference 7K1F · EMD-7062 · S2h</span>
+            </figcaption>
+          </figure>
+          </div>
+        </div>
+      </div>
+      <div id="panel-pairs" role="tabpanel" aria-labelledby="tab-pairs" hidden>
+        <div class="pairs">
+          <figure class="render-card pair-card" data-arm="px1">
+            <div class="compare">
+              <img src="static/atlas/concordant_typical_phenix_6s5t_184_asp-a_to_b-registered.webp" width="1800" height="1568" loading="lazy" decoding="async" alt="Phenix ×1 6S5T ASP283, refined against half map A and shown with half map B">
+              <img class="over" src="static/atlas/concordant_typical_phenix_6s5t_184_asp-b_to_a-registered.webp" width="1800" height="1568" loading="lazy" decoding="async" alt="Phenix ×1 6S5T ASP283, refined against half map B and shown with half map A">
+              <span class="divider" aria-hidden="true"></span>
+              <img class="locator" src="static/atlas/concordant_typical_phenix_6s5t_184_asp-locator.webp" width="720" height="575" loading="lazy" decoding="async" alt="">
+              <span class="lbl a" aria-hidden="true">A→B</span><span class="lbl b" aria-hidden="true">B→A</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Slide to compare the A→B and B→A views of Phenix ×1 6S5T ASP283">
+            </div>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-px1)"><i></i><span>Phenix ×1</span></span>
+              <span class="res">6S5T ASP283</span>
+              <span class="dl"><b>−4.05°</b>A→B Δχ<sub>1</sub></span><span class="dl r"><b>−5.35°</b>B→A Δχ<sub>1</sub></span>
+              <span class="cls">Concordant typical · reference 7MIR · S3a</span>
+              <span class="views">
+                <button type="button" class="mini" data-view data-group="pair-0" data-src="static/atlas/concordant_typical_phenix_6s5t_184_asp-a_to_b-1800.webp" data-w="1800" data-h="1576" data-title="Phenix ×1 6S5T ASP283 · A→B · Δχ₁ −4.05°" data-cap="cap-concordant_typical_phenix_6s5t_184_asp"><img src="static/atlas/concordant_typical_phenix_6s5t_184_asp-a_to_b-900.webp" alt="" loading="lazy" hidden>Enlarge A→B</button>
+                <button type="button" class="mini" data-view data-group="pair-0" data-src="static/atlas/concordant_typical_phenix_6s5t_184_asp-b_to_a-1800.webp" data-w="1800" data-h="1483" data-title="Phenix ×1 6S5T ASP283 · B→A · Δχ₁ −5.35°" data-cap="cap-concordant_typical_phenix_6s5t_184_asp"><img src="static/atlas/concordant_typical_phenix_6s5t_184_asp-b_to_a-900.webp" alt="" loading="lazy" hidden>Enlarge B→A</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="render-card pair-card" data-arm="px1">
+            <div class="compare">
+              <img src="static/atlas/discordant_typical_phenix_6b3q_763_leu-a_to_b-registered.webp" width="1800" height="1611" loading="lazy" decoding="async" alt="Phenix ×1 6B3Q LEU810, refined against half map A and shown with half map B">
+              <img class="over" src="static/atlas/discordant_typical_phenix_6b3q_763_leu-b_to_a-registered.webp" width="1800" height="1611" loading="lazy" decoding="async" alt="Phenix ×1 6B3Q LEU810, refined against half map B and shown with half map A">
+              <span class="divider" aria-hidden="true"></span>
+              <img class="locator" src="static/atlas/discordant_typical_phenix_6b3q_763_leu-locator.webp" width="720" height="425" loading="lazy" decoding="async" alt="">
+              <span class="lbl a" aria-hidden="true">A→B</span><span class="lbl b" aria-hidden="true">B→A</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Slide to compare the A→B and B→A views of Phenix ×1 6B3Q LEU810">
+            </div>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-px1)"><i></i><span>Phenix ×1</span></span>
+              <span class="res">6B3Q LEU810</span>
+              <span class="dl"><b>−1.59°</b>A→B Δχ<sub>1</sub></span><span class="dl r"><b>+4.35°</b>B→A Δχ<sub>1</sub></span>
+              <span class="cls">Discordant or zero typical · reference 7K1F · S3b</span>
+              <span class="views">
+                <button type="button" class="mini" data-view data-group="pair-1" data-src="static/atlas/discordant_typical_phenix_6b3q_763_leu-a_to_b-1800.webp" data-w="1800" data-h="1604" data-title="Phenix ×1 6B3Q LEU810 · A→B · Δχ₁ −1.59°" data-cap="cap-discordant_typical_phenix_6b3q_763_leu"><img src="static/atlas/discordant_typical_phenix_6b3q_763_leu-a_to_b-900.webp" alt="" loading="lazy" hidden>Enlarge A→B</button>
+                <button type="button" class="mini" data-view data-group="pair-1" data-src="static/atlas/discordant_typical_phenix_6b3q_763_leu-b_to_a-1800.webp" data-w="1800" data-h="1604" data-title="Phenix ×1 6B3Q LEU810 · B→A · Δχ₁ +4.35°" data-cap="cap-discordant_typical_phenix_6b3q_763_leu"><img src="static/atlas/discordant_typical_phenix_6b3q_763_leu-b_to_a-900.webp" alt="" loading="lazy" hidden>Enlarge B→A</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="render-card pair-card" data-arm="sv">
+            <div class="compare">
+              <img src="static/atlas/concordant_typical_servalcat_7e5z_355_ser-a_to_b-registered.webp" width="1800" height="1526" loading="lazy" decoding="async" alt="Servalcat 7E5Z SER439, refined against half map A and shown with half map B">
+              <img class="over" src="static/atlas/concordant_typical_servalcat_7e5z_355_ser-b_to_a-registered.webp" width="1800" height="1526" loading="lazy" decoding="async" alt="Servalcat 7E5Z SER439, refined against half map B and shown with half map A">
+              <span class="divider" aria-hidden="true"></span>
+              <img class="locator" src="static/atlas/concordant_typical_servalcat_7e5z_355_ser-locator.webp" width="720" height="435" loading="lazy" decoding="async" alt="">
+              <span class="lbl a" aria-hidden="true">A→B</span><span class="lbl b" aria-hidden="true">B→A</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Slide to compare the A→B and B→A views of Servalcat 7E5Z SER439">
+            </div>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-sv)"><i></i><span>Servalcat</span></span>
+              <span class="res">7E5Z SER439</span>
+              <span class="dl"><b>−8.03°</b>A→B Δχ<sub>1</sub></span><span class="dl r"><b>−8.67°</b>B→A Δχ<sub>1</sub></span>
+              <span class="cls">Concordant typical · reference 7VW6 · S3c</span>
+              <span class="views">
+                <button type="button" class="mini" data-view data-group="pair-2" data-src="static/atlas/concordant_typical_servalcat_7e5z_355_ser-a_to_b-1800.webp" data-w="1800" data-h="1506" data-title="Servalcat 7E5Z SER439 · A→B · Δχ₁ −8.03°" data-cap="cap-concordant_typical_servalcat_7e5z_355_ser"><img src="static/atlas/concordant_typical_servalcat_7e5z_355_ser-a_to_b-900.webp" alt="" loading="lazy" hidden>Enlarge A→B</button>
+                <button type="button" class="mini" data-view data-group="pair-2" data-src="static/atlas/concordant_typical_servalcat_7e5z_355_ser-b_to_a-1800.webp" data-w="1800" data-h="1557" data-title="Servalcat 7E5Z SER439 · B→A · Δχ₁ −8.67°" data-cap="cap-concordant_typical_servalcat_7e5z_355_ser"><img src="static/atlas/concordant_typical_servalcat_7e5z_355_ser-b_to_a-900.webp" alt="" loading="lazy" hidden>Enlarge B→A</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="render-card pair-card" data-arm="sv">
+            <div class="compare">
+              <img src="static/atlas/discordant_typical_servalcat_6b3q_665_leu-a_to_b-registered.webp" width="1800" height="1825" loading="lazy" decoding="async" alt="Servalcat 6B3Q LEU712, refined against half map A and shown with half map B">
+              <img class="over" src="static/atlas/discordant_typical_servalcat_6b3q_665_leu-b_to_a-registered.webp" width="1800" height="1825" loading="lazy" decoding="async" alt="Servalcat 6B3Q LEU712, refined against half map B and shown with half map A">
+              <span class="divider" aria-hidden="true"></span>
+              <img class="locator" src="static/atlas/discordant_typical_servalcat_6b3q_665_leu-locator.webp" width="720" height="425" loading="lazy" decoding="async" alt="">
+              <span class="lbl a" aria-hidden="true">A→B</span><span class="lbl b" aria-hidden="true">B→A</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Slide to compare the A→B and B→A views of Servalcat 6B3Q LEU712">
+            </div>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-sv)"><i></i><span>Servalcat</span></span>
+              <span class="res">6B3Q LEU712</span>
+              <span class="dl"><b>−5.47°</b>A→B Δχ<sub>1</sub></span><span class="dl r"><b>+4.41°</b>B→A Δχ<sub>1</sub></span>
+              <span class="cls">Discordant or zero typical · reference 7K1F · S3d</span>
+              <span class="views">
+                <button type="button" class="mini" data-view data-group="pair-3" data-src="static/atlas/discordant_typical_servalcat_6b3q_665_leu-a_to_b-1800.webp" data-w="1800" data-h="1825" data-title="Servalcat 6B3Q LEU712 · A→B · Δχ₁ −5.47°" data-cap="cap-discordant_typical_servalcat_6b3q_665_leu"><img src="static/atlas/discordant_typical_servalcat_6b3q_665_leu-a_to_b-900.webp" alt="" loading="lazy" hidden>Enlarge A→B</button>
+                <button type="button" class="mini" data-view data-group="pair-3" data-src="static/atlas/discordant_typical_servalcat_6b3q_665_leu-b_to_a-1800.webp" data-w="1800" data-h="1844" data-title="Servalcat 6B3Q LEU712 · B→A · Δχ₁ +4.41°" data-cap="cap-discordant_typical_servalcat_6b3q_665_leu"><img src="static/atlas/discordant_typical_servalcat_6b3q_665_leu-b_to_a-900.webp" alt="" loading="lazy" hidden>Enlarge B→A</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="render-card pair-card" data-arm="cn">
+            <div class="compare">
+              <img src="static/atlas/concordant_typical_cryonet_6b3q_303_leu-a_to_b-registered.webp" width="1800" height="1701" loading="lazy" decoding="async" alt="CryoNet.Refine 6B3Q LEU350, refined against half map A and shown with half map B">
+              <img class="over" src="static/atlas/concordant_typical_cryonet_6b3q_303_leu-b_to_a-registered.webp" width="1800" height="1701" loading="lazy" decoding="async" alt="CryoNet.Refine 6B3Q LEU350, refined against half map B and shown with half map A">
+              <span class="divider" aria-hidden="true"></span>
+              <img class="locator" src="static/atlas/concordant_typical_cryonet_6b3q_303_leu-locator.webp" width="720" height="425" loading="lazy" decoding="async" alt="">
+              <span class="lbl a" aria-hidden="true">A→B</span><span class="lbl b" aria-hidden="true">B→A</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Slide to compare the A→B and B→A views of CryoNet.Refine 6B3Q LEU350">
+            </div>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-cn)"><i></i><span>CryoNet.Refine</span></span>
+              <span class="res">6B3Q LEU350</span>
+              <span class="dl"><b>−3.86°</b>A→B Δχ<sub>1</sub></span><span class="dl r"><b>−3.70°</b>B→A Δχ<sub>1</sub></span>
+              <span class="cls">Concordant typical · reference 7K1F · S3e</span>
+              <span class="views">
+                <button type="button" class="mini" data-view data-group="pair-4" data-src="static/atlas/concordant_typical_cryonet_6b3q_303_leu-a_to_b-1800.webp" data-w="1800" data-h="1702" data-title="CryoNet.Refine 6B3Q LEU350 · A→B · Δχ₁ −3.86°" data-cap="cap-concordant_typical_cryonet_6b3q_303_leu"><img src="static/atlas/concordant_typical_cryonet_6b3q_303_leu-a_to_b-900.webp" alt="" loading="lazy" hidden>Enlarge A→B</button>
+                <button type="button" class="mini" data-view data-group="pair-4" data-src="static/atlas/concordant_typical_cryonet_6b3q_303_leu-b_to_a-1800.webp" data-w="1800" data-h="1713" data-title="CryoNet.Refine 6B3Q LEU350 · B→A · Δχ₁ −3.70°" data-cap="cap-concordant_typical_cryonet_6b3q_303_leu"><img src="static/atlas/concordant_typical_cryonet_6b3q_303_leu-b_to_a-900.webp" alt="" loading="lazy" hidden>Enlarge B→A</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="render-card pair-card" data-arm="cn">
+            <div class="compare">
+              <img src="static/atlas/discordant_typical_cryonet_6b70_138_asn-a_to_b-registered.webp" width="1800" height="1578" loading="lazy" decoding="async" alt="CryoNet.Refine 6B70 ASN184, refined against half map A and shown with half map B">
+              <img class="over" src="static/atlas/discordant_typical_cryonet_6b70_138_asn-b_to_a-registered.webp" width="1800" height="1578" loading="lazy" decoding="async" alt="CryoNet.Refine 6B70 ASN184, refined against half map B and shown with half map A">
+              <span class="divider" aria-hidden="true"></span>
+              <img class="locator" src="static/atlas/discordant_typical_cryonet_6b70_138_asn-locator.webp" width="720" height="701" loading="lazy" decoding="async" alt="">
+              <span class="lbl a" aria-hidden="true">A→B</span><span class="lbl b" aria-hidden="true">B→A</span>
+              <input type="range" min="0" max="100" value="50" aria-label="Slide to compare the A→B and B→A views of CryoNet.Refine 6B70 ASN184">
+            </div>
+            <figcaption>
+              <span class="arm" style="--c: var(--c-cn)"><i></i><span>CryoNet.Refine</span></span>
+              <span class="res">6B70 ASN184</span>
+              <span class="dl"><b>−1.07°</b>A→B Δχ<sub>1</sub></span><span class="dl r"><b>+0.46°</b>B→A Δχ<sub>1</sub></span>
+              <span class="cls">Discordant or zero typical · reference 7K1F · S3f</span>
+              <span class="views">
+                <button type="button" class="mini" data-view data-group="pair-5" data-src="static/atlas/discordant_typical_cryonet_6b70_138_asn-a_to_b-1800.webp" data-w="1800" data-h="1588" data-title="CryoNet.Refine 6B70 ASN184 · A→B · Δχ₁ −1.07°" data-cap="cap-discordant_typical_cryonet_6b70_138_asn"><img src="static/atlas/discordant_typical_cryonet_6b70_138_asn-a_to_b-900.webp" alt="" loading="lazy" hidden>Enlarge A→B</button>
+                <button type="button" class="mini" data-view data-group="pair-5" data-src="static/atlas/discordant_typical_cryonet_6b70_138_asn-b_to_a-1800.webp" data-w="1800" data-h="1474" data-title="CryoNet.Refine 6B70 ASN184 · B→A · Δχ₁ +0.46°" data-cap="cap-discordant_typical_cryonet_6b70_138_asn"><img src="static/atlas/discordant_typical_cryonet_6b70_138_asn-b_to_a-900.webp" alt="" loading="lazy" hidden>Enlarge B→A</button>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+        <p class="atlas-foot">Drag across an image to compare the two refinement directions. Left of the divider, the model was refined against half map A and is shown with half map B; right of it, the reverse.</p>
+      </div>
+      <p class="atlas-foot">Every scene, camera and contour level is identical to the paper's figures.</p>
+    </div>
+  </section>
+
+  <section class="section" id="figures" aria-labelledby="figures-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2 id="figures-h">Figures</h2></div>
+        <div class="intro"><p>Open any figure to read its caption, zoom into the panels or download the original PDF.</p></div>
+      </div>
+      <div class="figs">
+        <button class="fig-card" type="button" data-view data-group="figures" data-src="static/figures/Figure_1-3200.webp" data-w="3200" data-h="2309" data-title="Figure 1 | A no-operation decision benchmark and the configuration sweep" data-cap="cap-Figure_1" data-pdf="static/pdf/Figure_1.pdf">
+          <span class="thumb"><img src="static/figures/Figure_1-1600.webp" width="1600" height="1155" loading="lazy" decoding="async" alt="Figure 1: A no-operation decision benchmark and the configuration sweep"></span>
+          <span class="meta"><span class="num">Figure 1</span><span class="ttl">A no-operation decision benchmark and the configuration sweep</span></span>
+        </button>
+        <button class="fig-card" type="button" data-view data-group="figures" data-src="static/figures/Figure_2-3200.webp" data-w="3200" data-h="2889" data-title="Figure 2 | Selection by map fit at 3.0–3.6 Å" data-cap="cap-Figure_2" data-pdf="static/pdf/Figure_2.pdf">
+          <span class="thumb"><img src="static/figures/Figure_2-1600.webp" width="1600" height="1445" loading="lazy" decoding="async" alt="Figure 2: Selection by map fit at 3.0–3.6 Å"></span>
+          <span class="meta"><span class="num">Figure 2</span><span class="ttl">Selection by map fit at 3.0–3.6 Å</span></span>
+        </button>
+        <button class="fig-card" type="button" data-view data-group="figures" data-src="static/figures/Figure_3-3200.webp" data-w="3200" data-h="3165" data-title="Figure 3 | Validation signals, selection loss and reference support" data-cap="cap-Figure_3" data-pdf="static/pdf/Figure_3.pdf">
+          <span class="thumb"><img src="static/figures/Figure_3-1600.webp" width="1600" height="1583" loading="lazy" decoding="async" alt="Figure 3: Validation signals, selection loss and reference support"></span>
+          <span class="meta"><span class="num">Figure 3</span><span class="ttl">Validation signals, selection loss and reference support</span></span>
+        </button>
+        <button class="fig-card" type="button" data-view data-group="figures" data-src="static/figures/Figure_4-3200.webp" data-w="3200" data-h="2239" data-title="Figure 4 | Prespecified independent replication" data-cap="cap-Figure_4" data-pdf="static/pdf/Figure_4.pdf">
+          <span class="thumb"><img src="static/figures/Figure_4-1600.webp" width="1600" height="1120" loading="lazy" decoding="async" alt="Figure 4: Prespecified independent replication"></span>
+          <span class="meta"><span class="num">Figure 4</span><span class="ttl">Prespecified independent replication</span></span>
+        </button>
+        <button class="fig-card" type="button" data-view data-group="figures" data-src="static/figures/Figure_5-3200.webp" data-w="3200" data-h="3023" data-title="Figure 5 | Opposite half maps in MEDIC" data-cap="cap-Figure_5" data-pdf="static/pdf/Figure_5.pdf">
+          <span class="thumb"><img src="static/figures/Figure_5-1600.webp" width="1600" height="1512" loading="lazy" decoding="async" alt="Figure 5: Opposite half maps in MEDIC"></span>
+          <span class="meta"><span class="num">Figure 5</span><span class="ttl">Opposite half maps in MEDIC</span></span>
+        </button>
+        <button class="fig-card" type="button" data-view data-group="figures" data-src="static/figures/Extended_Data_Fig_10-3200.webp" data-w="3200" data-h="3023" data-title="Extended Data Fig. 10 | Selection loss in the prespecified within-study cohort" data-cap="cap-Extended_Data_Fig_10" data-pdf="static/pdf/Extended_Data_Fig_10.pdf">
+          <span class="thumb"><img src="static/figures/Extended_Data_Fig_10-1600.webp" width="1600" height="1512" loading="lazy" decoding="async" alt="Extended Data Fig. 10: Selection loss in the prespecified within-study cohort"></span>
+          <span class="meta"><span class="num">Extended Data Fig. 10</span><span class="ttl">Selection loss in the prespecified within-study cohort</span></span>
+        </button>
+      </div>
+      <h3 class="figs-sub">Molecular example plates</h3>
+      <div class="figs figs--4">
+        <button class="fig-card" type="button" data-view data-group="figures" data-src="static/figures/Extended_Data_Fig_4-3200.webp" data-w="3200" data-h="3023" data-title="Extended Data Fig. 4 | Molecular examples across the four MEDIC protocols" data-cap="cap-Extended_Data_Fig_4" data-pdf="static/pdf/Extended_Data_Fig_4.pdf">
+          <span class="thumb"><img src="static/figures/Extended_Data_Fig_4-1600.webp" width="1600" height="1512" loading="lazy" decoding="async" alt="Extended Data Fig. 4: Molecular examples across the four MEDIC protocols"></span>
+          <span class="meta"><span class="num">Extended Data Fig. 4</span><span class="ttl">Molecular examples across the four MEDIC protocols</span></span>
+        </button>
+        <button class="fig-card" type="button" data-view data-group="figures" data-src="static/figures/Supplementary_Fig_S1-3200.webp" data-w="3200" data-h="2347" data-title="Supplementary Fig. S1 | Numerically selected examples across the four MEDIC protocols" data-cap="cap-Supplementary_Fig_S1" data-pdf="static/pdf/Supplementary_Fig_S1.pdf">
+          <span class="thumb"><img src="static/figures/Supplementary_Fig_S1-1600.webp" width="1600" height="1174" loading="lazy" decoding="async" alt="Supplementary Fig. S1: Numerically selected examples across the four MEDIC protocols"></span>
+          <span class="meta"><span class="num">Supplementary Fig. S1</span><span class="ttl">Numerically selected examples across the four MEDIC protocols</span></span>
+        </button>
+        <button class="fig-card" type="button" data-view data-group="figures" data-src="static/figures/Supplementary_Fig_S2-3200.webp" data-w="3200" data-h="2632" data-title="Supplementary Fig. S2 | Matched MEDIC local atlas" data-cap="cap-Supplementary_Fig_S2" data-pdf="static/pdf/Supplementary_Fig_S2.pdf">
+          <span class="thumb"><img src="static/figures/Supplementary_Fig_S2-1600.webp" width="1600" height="1316" loading="lazy" decoding="async" alt="Supplementary Fig. S2: Matched MEDIC local atlas"></span>
+          <span class="meta"><span class="num">Supplementary Fig. S2</span><span class="ttl">Matched MEDIC local atlas</span></span>
+        </button>
+        <button class="fig-card" type="button" data-view data-group="figures" data-src="static/figures/Supplementary_Fig_S3-3200.webp" data-w="3200" data-h="3023" data-title="Supplementary Fig. S3 | Bidirectional half-map local atlas" data-cap="cap-Supplementary_Fig_S3" data-pdf="static/pdf/Supplementary_Fig_S3.pdf">
+          <span class="thumb"><img src="static/figures/Supplementary_Fig_S3-1600.webp" width="1600" height="1512" loading="lazy" decoding="async" alt="Supplementary Fig. S3: Bidirectional half-map local atlas"></span>
+          <span class="meta"><span class="num">Supplementary Fig. S3</span><span class="ttl">Bidirectional half-map local atlas</span></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--card" id="use" aria-labelledby="use-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2 id="use-h">Using Primum</h2></div>
+        <div class="intro"><p>Primum fixes the cohorts, references, residue supports and scoring, so new methods can be compared with no operation and with the published reference results.</p></div>
+      </div>
+      <div class="use">
+        <div class="ways">
+          <div class="way"><h3>Evaluate a new refiner</h3><p>Run it on the supplied starting coordinates and score its output on the fixed reference correspondence and residue support.</p></div>
+          <div class="way"><h3>Evaluate a new selection rule</h3><p>Make one action choice per case from the available model and map features, then score the choices against the outcome table. Existing candidates can be reused without running refinement again.</p></div>
+          <div class="way"><h3>Compute the decision summaries</h3><p>Primum (Python, NumPy only) computes selection loss, observed regret, leave-one-action-out sets, single-action acceptance rules, risk–coverage and the cluster bootstrap from a long table with these columns:</p>
+            <div class="schema"><code>case</code><code>cluster</code><code>action</code><code>selection score</code><code>outcome</code></div></div>
+        </div>
+        <div>
+          <h3>Five reporting items for re-refinement benchmarks</h3>
+          <ol class="items">
+            <li>The no-operation endpoint value.</li>
+            <li>The candidate set and selection rule, with selection loss and observed regret.</li>
+            <li>Coordinate agreement against a separately determined comparison, alongside map fit and geometry.</li>
+            <li>Refinement coverage and the loss among accepted cases.</li>
+            <li>The independent statistical units and scored residue support.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="cohorts">
+        <h3>Cohorts in Primum v2</h3>
+        <div class="tbl" style="overflow-x:auto"><table>
+          <thead><tr><th>Cohort</th><th>Resolution</th><th class="num">Analysed</th><th>Independent unit</th></tr></thead>
+          <tbody>
+            <tr><td>Prespecified 3.0–3.6 Å cohort</td><td>3.0–3.6 Å</td><td class="num">167 entries</td><td>131 sequence groups (95% identity)</td></tr>
+            <tr><td>Within-study low/high-resolution pairs</td><td>low 3.0–6.5 Å, reference ≤3.5 Å</td><td class="num">53 pairs</td><td>one pair per study</td></tr>
+            <tr><td>Earlier replication</td><td>3.6–6.5 Å</td><td class="num">156 entries</td><td>130 sequence groups</td></tr>
+            <tr><td>MEDIC</td><td>3.6–6.2 Å</td><td class="num">26 cases</td><td>20 comparison-structure clusters</td></tr>
+            <tr><td>Within-study pilot</td><td>low 3.0–6.5 Å, reference ≤3.2 Å</td><td class="num">22 pairs</td><td>one pair per study</td></tr>
+          </tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="access" aria-labelledby="access-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2 id="access-h">Paper, data and code</h2></div>
+        <div class="intro"><p>The preprint is on bioRxiv. Coordinates, maps and half maps of the analysed entries are public in the PDB and EMDB.</p></div>
+      </div>
+      <div class="access">
+        <div class="resource"><span class="k">Paper</span><h3>bioRxiv preprint</h3><p>doi:<a href="https://doi.org/10.64898/2026.10.31.763284" rel="noopener">10.64898/2026.10.31.763284</a>, posted 4 November 2026 under a CC-BY 4.0 licence.</p>
+          <div class="row"><a class="btn btn--solid" href="https://www.biorxiv.org/content/10.64898/2026.10.31.763284v1" rel="noopener">Open on bioRxiv</a><a class="btn btn--line" href="2026.10.31.763284v1.full.pdf">PDF</a></div></div>
+        <div class="resource"><span class="k">Dataset v2.0.0</span><h3>Access on request</h3><p>Starting models, refined candidates, higher-resolution references, fixed residue supports and case-level outcomes. Email your name, affiliation, intended research use and Hugging Face username; access is granted individually after review.</p>
+          <div class="row"><a class="btn btn--solid" href="mailto:xingyu.yi@intosyn.com?subject=Primum%20v2%20dataset%20access%20request">Request access</a><a class="btn btn--line" href="https://huggingface.co/datasets/INTOSYN/primum" rel="noopener">Hugging Face</a></div></div>
+        <div class="resource"><span class="k">Code</span><h3>INTOSYN/primum</h3><p>Primum and the analysis code will be released under an open-source licence on publication; until then they are available from the corresponding author on request.</p>
+          <div class="row"><a class="btn btn--solid" href="https://github.com/INTOSYN/primum" rel="noopener">Open on GitHub</a></div></div>
+      </div>
+      <div class="cite" id="cite">
+        <div><h3 class="h2" style="font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.5rem)">Citation</h3><p>Please cite the bioRxiv preprint. When you report benchmark results, also give the dataset version, Primum v2.0.0.</p></div>
+        <pre class="bib"><button class="copy" type="button">Copy BibTeX</button><code id="bibtex">@article{yi2026decision,
+  title   = {Decision benchmarking of cryo-EM re-refinement},
+  author  = {Yi, Xingyu and Zhang, Xinya and Zhang, Lizhe and Yi, Jinhua},
+  journal = {bioRxiv},
+  year    = {2026},
+  doi     = {10.64898/2026.10.31.763284},
+  url     = {https://www.biorxiv.org/content/10.64898/2026.10.31.763284v1}
+}</code></pre>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <a class="brand" href="#top"><img src="static/img/primum-mark.svg?v=aedb859be2" width="30" height="30" alt="">Primum</a>
+      <p>Computations were performed on INTOSYN AI Labs infrastructure.</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <dialog class="viewer" id="viewer" aria-label="Image viewer">
+    <div class="v-bar">
+      <span class="v-title"></span>
+      <div class="v-tools">
+        <button type="button" class="v-out" aria-label="Zoom out">−</button>
+        <span class="v-zoom" aria-live="polite">100%</span>
+        <button type="button" class="v-in" aria-label="Zoom in">+</button>
+        <button type="button" class="v-fit opt">Fit</button>
+        <button type="button" class="v-capbtn opt" aria-pressed="true">Caption</button>
+        <a class="v-pdf" href="#" download>PDF</a>
+        <button type="button" class="v-close" aria-label="Close the viewer">✕</button>
+      </div>
+    </div>
+    <div class="v-stage">
+      <div class="v-canvas"><img alt=""></div>
+      <span class="v-loading">Loading…</span>
+      <button type="button" class="v-nav v-prev" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
+      <button type="button" class="v-nav v-next" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+    </div>
+    <div class="v-cap"></div>
+  </dialog>
+
+  <div hidden id="captions">
+  <div id="cap-Figure_1"><b>Figure 1 | A no-operation decision benchmark and the configuration sweep.</b> <b>a</b>, The deposited model is kept as a scored no-operation action next to refined candidates; a rule selects within each case; the choice is scored by χ<sub>1</sub> agreement with a separately determined structure; cases are averaged within clusters that receive equal weight. The Primum workflow links case inputs and candidate actions to the five reporting items described in the Discussion. <b>b</b>, Same-map CC<sub>mask</sub> gain against χ<sub>1</sub> change relative to no operation for all 11 refinement configurations (MEDIC, 26 cases, 20 clusters); bars are 95% cluster-bootstrap intervals (Phenix intervals in Extended Data Fig.&nbsp;3); the line joins Servalcat at 0.5×, 1× and 2× automatic map weight. <b>c</b>, Selection loss of the highest-CC<sub>mask</sub> rule for the original five actions, all 12 actions, all actions without Servalcat and Phenix only (action counts include no operation), with clusters worse than no operation. <b>d</b>, The same rules in the prespecified independent replication (156 entries, 130 sequence groups), with sequence groups worse than no operation; no Phenix-only set was prespecified for this cohort. Positive values are worse than no operation.</div>
+  <div id="cap-Figure_2"><b>Figure 2 | Selection by map fit at 3.0–3.6&nbsp;Å.</b> <b>a</b>, Cohort selection and analysis membership. <b>b</b>, Selection loss in all 131 sequence groups, ordered by loss, for the highest same-map CC<sub>mask</sub> rule over five actions. <b>c</b>, Changes in map fit and packed-side-chain disagreement for the four refiners, on the same 167 entries. <b>d</b>, Counts of selected actions. <b>e</b>, Selection by work-half or evaluation-half CC<sub>mask</sub> on the same 99 entries in 82 groups; candidates comprise no operation and three Phenix/Servalcat configurations; each configuration's scores and endpoints are averaged over both directions before selection. <b>f</b>, Overall loss for the five-action map-fit rule, always CryoNet.Refine, the calibrated EMRinger acceptance rule and the per-case oracle on the full 167-entry sample; retained no-operation choices contribute zero loss. Points and bars are equal-group means and 95% percentile bootstrap intervals (10,000 draws, seed 20261101); positive loss indicates greater disagreement with the independent reference.</div>
+  <div id="cap-Figure_3"><b>Figure 3 | Validation signals, selection loss and reference support.</b> <b>a</b>, Actions selected separately by CC<sub>mask</sub>, EMRinger or geometry. <b>b</b>, Selected actions for the highest-CC<sub>mask</sub> and highest-EMRinger rules on the common 24-case, 19-cluster cohort. <b>c</b>, Selection loss of four rules (accepted cases out of 24). <b>d</b>, Selection loss across within-structure local-support quartiles of the comparison structures (residue counts for CC<sub>mask</sub> and EMRinger). <b>e</b>, Coverage and loss for 12 geometry and combined selectors. <b>f</b>, Agreement between CC<sub>mask</sub>- and EMRinger-selected actions. Points and bars are cluster-weighted means and 95% intervals.</div>
+  <div id="cap-Figure_4"><b>Figure 4 | Prespecified independent replication.</b> <b>a</b>, χ<sub>1</sub> change relative to no operation for every refinement configuration in the replication cohort (filled symbols; 156 entries, 130 sequence groups) beside MEDIC (open symbols; 26 cases, 20 clusters); the asterisk marks the configuration excluded from MEDIC after one run exceeded the time limit. <b>b</b>, Selection loss of the highest-CC<sub>mask</sub> rule for the prespecified action sets P1–P3 (action counts include no operation); dots are sequence-group values, and values beyond the axis are drawn at its edge. <b>c</b>, In the replication entries with two deposited half maps, CC<sub>mask</sub> gain of each action refined against one half map, scored on that half (open) and on the opposite evaluation half (filled); both directions are averaged within entry. Phenix ×1 and ×2, 69 entries and 63 sequence groups; Servalcat, 70 entries and 64 groups. <b>d</b>, Selection loss of choosing by evaluation-half CC<sub>mask</sub> (P6) and by work-half CC<sub>mask</sub> on the same 69 entries (63 groups), with one configuration selected per entry using direction-averaged scores, and the χ<sub>1</sub> changes of the half-map-refined actions (n as in c). Cluster-weighted means with 95% cluster-bootstrap intervals; positive values are worse than no operation.</div>
+  <div id="cap-Figure_5"><b>Figure 5 | Opposite half maps in MEDIC.</b> <b>a</b>, Refinement against one half map and evaluation on the other, in both directions, averaged within case. <b>b</b>, A rank-selected example (6B3Q LEU712; comparison 7K1F; Supplementary Fig.&nbsp;S3d) with the two evaluation halves. <b>c–e</b>, Directional and averaged values for nine clusters. <b>f,g</b>, Evaluation-half CC<sub>mask</sub> change (<b>f</b>) and χ<sub>1</sub> change (<b>g</b>) for each protocol in the A→B direction (circles), the B→A direction (squares) and averaged over both (diamonds), with 95% intervals.</div>
+  <div id="cap-Extended_Data_Fig_10"><b>Extended Data Fig. 10 | Selection loss in the prespecified within-study cohort.</b> <b>a</b>, Cohort and five-action design. Screening before refinement retained 53 of 90 pairs, with 52 separate-acquisition pairs and one shared-dataset pair; 44 pairs had usable half maps. <b>b</b>, Full-map selection loss against baseline χ<sub>1</sub> disagreement for all 53 pairs. The vertical dashed line marks the prespecified 12.95° baseline threshold; the diamond identifies the shared-dataset pair. <b>c</b>, Individual refinement effects, highest-CC<sub>mask</sub> selection and the per-case oracle. Filled circles indicate full-map results (53 pairs), open squares indicate evaluation-half results after refinement against half 1 (44 pairs). Bars are 95% pair-bootstrap intervals (10,000 draws, seed 20261101). <b>d</b>, Full-map CC<sub>mask</sub> gain and selection loss for the selected action in each pair. All 52 selected refinements increased CC<sub>mask</sub>; one pair retained no operation. Colour identifies the selected action. Positive selection loss is increased χ<sub>1</sub> disagreement relative to no operation. Pair identifiers, baseline and provenance checks, exclusions and fixed-rule evaluation are in Supplementary Tables S41–S44.</div>
+  <div id="cap-Extended_Data_Fig_4"><b>Extended Data Fig. 4 | Molecular examples across the four MEDIC protocols.</b> <b>a,b</b>, Residues closest to each protocol's median signed Δχ<sub>1</sub>, paired as Phenix ×1/×2 and CryoNet.Refine/Servalcat; <b>c,d</b>, residues closest to the median absolute Δχ<sub>1</sub>; <b>e,f</b>, residues closest to the 75th-percentile absolute Δχ<sub>1</sub>. Each cell shows the starting residue (blue), the refined residue (method colour), the superposed comparison residue (charcoal; five-residue Kabsch frame), the deposited map and a whole-model locator. Values are signed Δχ<sub>1</sub> relative to no operation (positive, reduced agreement). Examples were selected by numeric rank (Extended Data Fig.&nbsp;8).</div>
+  <div id="cap-Supplementary_Fig_S1"><b>Supplementary Figure S1 | Numerically selected examples across the four MEDIC protocols.</b> Four residues closest to each protocol's median signed Δχ<sub>1</sub> were selected by numeric rank. Panels a–d show Phenix ×1, Phenix ×2, CryoNet.Refine and Servalcat, respectively. Each panel contains a whole-model locator, starting residue in blue, selected arm in its fixed method color, five-residue-Kabsch-aligned comparison residue in charcoal, and the original deposited full map as a pale surface plus higher-contour mesh. The signed Δχ<sub>1</sub> value is printed on each panel. Coordinates were not realigned for display. These examples, which also appear in Extended Data Fig. 4, are descriptive.</div>
+  <div id="cap-Supplementary_Fig_S2"><b>Supplementary Figure S2 | Matched MEDIC local atlas.</b> Eight additional, non-overlapping MEDIC examples cover all four matched methods. Panels a–d are closest to each arm's median absolute Δχ<sub>1</sub>; panels e–h are closest to its 75th-percentile absolute change and exclude the maximum extreme by construction. Rendering and color conventions match Supplementary Figure S1. Selection rankings, superposition transforms and contour levels will be included in the public data archive. The examples illustrate local heterogeneity.</div>
+  <div id="cap-Supplementary_Fig_S3"><b>Supplementary Figure S3 | Bidirectional half-map local atlas.</b> Six numerically selected examples show A→B and B→A local views with a shared camera view. Rows correspond to Phenix ×1, Servalcat and CryoNet.Refine; left panels are directionally concordant typical examples and right panels are discordant-or-zero typical examples. Labels below each image report the signed Δχ<sub>1</sub> for A→B and B→A. Each pair uses the opposite evaluation half map at fixed absolute contour levels and one shared whole-model locator. Examples were selected by numeric rank and exclude residues shown in Supplementary Figs. S1 and S2. Both directions are shown for descriptive comparison; statistical analyses average directions within each case.</div>
+  <div id="cap-s1_anchor_signed_median_phenix_x1_6t7s_394_met"><b>Phenix ×1 · 6T7S MET395 · Δχ<sub>1</sub> +0.52°.</b> Residue closest to the median signed Δχ<sub>1</sub> of Phenix ×1 in MEDIC, selected by numeric rank (Supplementary Fig. S1a; Extended Data Fig. 4a). Starting residue in blue, Phenix ×1 refinement in its protocol colour, the superposed higher-resolution reference 6TA5 in charcoal (five-residue Kabsch frame) and the deposited map EMD-10371 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means reduced agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s1_anchor_signed_median_phenix_x2_6b3q_687_thr"><b>Phenix ×2 · 6B3Q THR734 · Δχ<sub>1</sub> +0.94°.</b> Residue closest to the median signed Δχ<sub>1</sub> of Phenix ×2 in MEDIC, selected by numeric rank (Supplementary Fig. S1b; Extended Data Fig. 4a). Starting residue in blue, Phenix ×2 refinement in its protocol colour, the superposed higher-resolution reference 7K1F in charcoal (five-residue Kabsch frame) and the deposited map EMD-7041 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means reduced agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s1_anchor_signed_median_cryonet_6pvm_293_val"><b>CryoNet.Refine · 6PVM VAL408 · Δχ<sub>1</sub> −0.00°.</b> Residue closest to the median signed Δχ<sub>1</sub> of CryoNet.Refine in MEDIC, selected by numeric rank (Supplementary Fig. S1c; Extended Data Fig. 4b). Starting residue in blue, CryoNet.Refine refinement in its protocol colour, the superposed higher-resolution reference 7MIJ in charcoal (five-residue Kabsch frame) and the deposited map EMD-20493 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means closer agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s1_anchor_signed_median_servalcat_6pvm_386_glu"><b>Servalcat · 6PVM GLU501 · Δχ<sub>1</sub> +2.67°.</b> Residue closest to the median signed Δχ<sub>1</sub> of Servalcat in MEDIC, selected by numeric rank (Supplementary Fig. S1d; Extended Data Fig. 4b). Starting residue in blue, Servalcat refinement in its protocol colour, the superposed higher-resolution reference 7MIJ in charcoal (five-residue Kabsch frame) and the deposited map EMD-20493 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means reduced agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s2_typical_absolute_median_phenix_x1_5ywd_38_lys"><b>Phenix ×1 · 5YWD LYS252 · Δχ<sub>1</sub> −3.46°.</b> Residue closest to the median |Δχ<sub>1</sub>| of Phenix ×1 in MEDIC, selected by numeric rank (Supplementary Fig. S2a; Extended Data Fig. 4c). Starting residue in blue, Phenix ×1 refinement in its protocol colour, the superposed higher-resolution reference 7W4O in charcoal (five-residue Kabsch frame) and the deposited map EMD-6853 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means closer agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s2_typical_absolute_median_phenix_x2_6xh7_395_ser"><b>Phenix ×2 · 6XH7 SER398 · Δχ<sub>1</sub> +4.84°.</b> Residue closest to the median |Δχ<sub>1</sub>| of Phenix ×2 in MEDIC, selected by numeric rank (Supplementary Fig. S2b; Extended Data Fig. 4c). Starting residue in blue, Phenix ×2 refinement in its protocol colour, the superposed higher-resolution reference 6XL5 in charcoal (five-residue Kabsch frame) and the deposited map EMD-22184 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means reduced agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s2_typical_absolute_median_cryonet_5gjw_403_asn"><b>CryoNet.Refine · 5GJW ASN497 · Δχ<sub>1</sub> −3.51°.</b> Residue closest to the median |Δχ<sub>1</sub>| of CryoNet.Refine in MEDIC, selected by numeric rank (Supplementary Fig. S2c; Extended Data Fig. 4d). Starting residue in blue, CryoNet.Refine refinement in its protocol colour, the superposed higher-resolution reference 6JPA in charcoal (five-residue Kabsch frame) and the deposited map EMD-9515 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means closer agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s2_typical_absolute_median_servalcat_6pvp_208_asp"><b>Servalcat · 6PVP ASP293 · Δχ<sub>1</sub> −8.35°.</b> Residue closest to the median |Δχ<sub>1</sub>| of Servalcat in MEDIC, selected by numeric rank (Supplementary Fig. S2d; Extended Data Fig. 4d). Starting residue in blue, Servalcat refinement in its protocol colour, the superposed higher-resolution reference 7MIJ in charcoal (five-residue Kabsch frame) and the deposited map EMD-20496 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means closer agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s2_large_nonextreme_q75_phenix_x1_6b70_124_leu"><b>Phenix ×1 · 6B70 LEU170 · Δχ<sub>1</sub> +8.03°.</b> Residue closest to the 75th-percentile |Δχ<sub>1</sub>| of Phenix ×1 in MEDIC, selected by numeric rank (Supplementary Fig. S2e; Extended Data Fig. 4e). Starting residue in blue, Phenix ×1 refinement in its protocol colour, the superposed higher-resolution reference 7K1F in charcoal (five-residue Kabsch frame) and the deposited map EMD-7062 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means reduced agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln"><b>Phenix ×2 · 6WBI GLN262 · Δχ<sub>1</sub> +10.69°.</b> Residue closest to the 75th-percentile |Δχ<sub>1</sub>| of Phenix ×2 in MEDIC, selected by numeric rank (Supplementary Fig. S2f; Extended Data Fig. 4e). Starting residue in blue, Phenix ×2 refinement in its protocol colour, the superposed higher-resolution reference 7DWB in charcoal (five-residue Kabsch frame) and the deposited map EMD-21590 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means reduced agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s2_large_nonextreme_q75_cryonet_7e5z_492_arg"><b>CryoNet.Refine · 7E5Z ARG576 · Δχ<sub>1</sub> +6.97°.</b> Residue closest to the 75th-percentile |Δχ<sub>1</sub>| of CryoNet.Refine in MEDIC, selected by numeric rank (Supplementary Fig. S2g; Extended Data Fig. 4f). Starting residue in blue, CryoNet.Refine refinement in its protocol colour, the superposed higher-resolution reference 7VW6 in charcoal (five-residue Kabsch frame) and the deposited map EMD-30995 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means reduced agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-s2_large_nonextreme_q75_servalcat_6b70_203_tyr"><b>Servalcat · 6B70 TYR249 · Δχ<sub>1</sub> −16.09°.</b> Residue closest to the 75th-percentile |Δχ<sub>1</sub>| of Servalcat in MEDIC, selected by numeric rank (Supplementary Fig. S2h; Extended Data Fig. 4f). Starting residue in blue, Servalcat refinement in its protocol colour, the superposed higher-resolution reference 7K1F in charcoal (five-residue Kabsch frame) and the deposited map EMD-7062 as a pale surface with a higher-contour mesh. The inset locates the residue in the whole model. The signed value is relative to no operation; here it means closer agreement with the reference. Rendered with PyMOL from a frozen camera.</div>
+  <div id="cap-concordant_typical_phenix_6s5t_184_asp"><b>Phenix ×1 · 6S5T ASP283 · concordant typical (Supplementary Fig. S3a).</b> A→B Δχ<sub>1</sub> −4.05°; B→A Δχ<sub>1</sub> −5.35°. Each view shows the model refined against one half map with the opposite (evaluation) half map at fixed absolute contour levels, from one shared camera. Starting residue in blue, refinement in the protocol colour, higher-resolution reference 7MIR in charcoal. Selected by numeric rank; statistical analyses average the two directions within each case.</div>
+  <div id="cap-discordant_typical_phenix_6b3q_763_leu"><b>Phenix ×1 · 6B3Q LEU810 · discordant or zero typical (Supplementary Fig. S3b).</b> A→B Δχ<sub>1</sub> −1.59°; B→A Δχ<sub>1</sub> +4.35°. Each view shows the model refined against one half map with the opposite (evaluation) half map at fixed absolute contour levels, from one shared camera. Starting residue in blue, refinement in the protocol colour, higher-resolution reference 7K1F in charcoal. Selected by numeric rank; statistical analyses average the two directions within each case.</div>
+  <div id="cap-concordant_typical_servalcat_7e5z_355_ser"><b>Servalcat · 7E5Z SER439 · concordant typical (Supplementary Fig. S3c).</b> A→B Δχ<sub>1</sub> −8.03°; B→A Δχ<sub>1</sub> −8.67°. Each view shows the model refined against one half map with the opposite (evaluation) half map at fixed absolute contour levels, from one shared camera. Starting residue in blue, refinement in the protocol colour, higher-resolution reference 7VW6 in charcoal. Selected by numeric rank; statistical analyses average the two directions within each case.</div>
+  <div id="cap-discordant_typical_servalcat_6b3q_665_leu"><b>Servalcat · 6B3Q LEU712 · discordant or zero typical (Supplementary Fig. S3d).</b> A→B Δχ<sub>1</sub> −5.47°; B→A Δχ<sub>1</sub> +4.41°. Each view shows the model refined against one half map with the opposite (evaluation) half map at fixed absolute contour levels, from one shared camera. Starting residue in blue, refinement in the protocol colour, higher-resolution reference 7K1F in charcoal. Selected by numeric rank; statistical analyses average the two directions within each case.</div>
+  <div id="cap-concordant_typical_cryonet_6b3q_303_leu"><b>CryoNet.Refine · 6B3Q LEU350 · concordant typical (Supplementary Fig. S3e).</b> A→B Δχ<sub>1</sub> −3.86°; B→A Δχ<sub>1</sub> −3.70°. Each view shows the model refined against one half map with the opposite (evaluation) half map at fixed absolute contour levels, from one shared camera. Starting residue in blue, refinement in the protocol colour, higher-resolution reference 7K1F in charcoal. Selected by numeric rank; statistical analyses average the two directions within each case.</div>
+  <div id="cap-discordant_typical_cryonet_6b70_138_asn"><b>CryoNet.Refine · 6B70 ASN184 · discordant or zero typical (Supplementary Fig. S3f).</b> A→B Δχ<sub>1</sub> −1.07°; B→A Δχ<sub>1</sub> +0.46°. Each view shows the model refined against one half map with the opposite (evaluation) half map at fixed absolute contour levels, from one shared camera. Starting residue in blue, refinement in the protocol colour, higher-resolution reference 7K1F in charcoal. Selected by numeric rank; statistical analyses average the two directions within each case.</div>
+  </div>
+  <script type="application/json" id="atlas-data">[{"id":"s2_large_nonextreme_q75_phenix_x1_6b70_124_leu","arm":"Phenix ×1","case":"6B70","residue":"LEU170","reference_pdb":"7K1F","map":"EMD-7062","delta_chi1_deg":8.03,"files":{"view":{"file":"s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-2000.webp","width":2000,"height":1585,"bytes":114906},"view_small":{"file":"s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-960.webp","width":960,"height":761,"bytes":45720},"locator":{"file":"s2_large_nonextreme_q75_phenix_x1_6b70_124_leu-locator.webp","width":720,"height":701,"bytes":67052}}},{"id":"s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln","arm":"Phenix ×2","case":"6WBI","residue":"GLN262","reference_pdb":"7DWB","map":"EMD-21590","delta_chi1_deg":10.69,"files":{"view":{"file":"s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-2000.webp","width":1880,"height":1638,"bytes":176190},"view_small":{"file":"s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-960.webp","width":960,"height":836,"bytes":76882},"locator":{"file":"s2_large_nonextreme_q75_phenix_x2_6wbi_219_gln-locator.webp","width":720,"height":643,"bytes":62004}}},{"id":"s2_large_nonextreme_q75_cryonet_7e5z_492_arg","arm":"CryoNet.Refine","case":"7E5Z","residue":"ARG576","reference_pdb":"7VW6","map":"EMD-30995","delta_chi1_deg":6.97,"files":{"view":{"file":"s2_large_nonextreme_q75_cryonet_7e5z_492_arg-2000.webp","width":2000,"height":1768,"bytes":190438},"view_small":{"file":"s2_large_nonextreme_q75_cryonet_7e5z_492_arg-960.webp","width":960,"height":849,"bytes":73078},"locator":{"file":"s2_large_nonextreme_q75_cryonet_7e5z_492_arg-locator.webp","width":720,"height":433,"bytes":47140}}},{"id":"s2_large_nonextreme_q75_servalcat_6b70_203_tyr","arm":"Servalcat","case":"6B70","residue":"TYR249","reference_pdb":"7K1F","map":"EMD-7062","delta_chi1_deg":-16.09,"files":{"view":{"file":"s2_large_nonextreme_q75_servalcat_6b70_203_tyr-2000.webp","width":2000,"height":1554,"bytes":143492},"view_small":{"file":"s2_large_nonextreme_q75_servalcat_6b70_203_tyr-960.webp","width":960,"height":746,"bytes":55192},"locator":{"file":"s2_large_nonextreme_q75_servalcat_6b70_203_tyr-locator.webp","width":720,"height":701,"bytes":67020}}}]</script>
+</body>
+</html>
